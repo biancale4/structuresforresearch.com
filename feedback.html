@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Feedback — Structures for Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:#1a1a18;--paper:#f7f5f0;--muted:#6b6860;--accent:#c8401a;--rule:#d9d5cc;
+      --serif:'Libre Baskerville',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+    nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav-logo{font-family:var(--serif);font-size:.95rem;color:var(--ink);text-decoration:none}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+
+    .page-header{max-width:760px;margin:0 auto;padding:3.5rem 2rem 2.5rem;border-bottom:1px solid var(--rule)}
+    .eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+    .page-header h1{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
+    .page-header p{font-size:.95rem;color:var(--muted);max-width:560px;line-height:1.75}
+
+    .main{max-width:760px;margin:0 auto;padding:3rem 2rem 5rem}
+
+    /* Form */
+    .form-section{margin-bottom:4rem}
+    .form-section h2{font-family:var(--serif);font-size:1.3rem;font-weight:700;margin-bottom:.5rem}
+    .form-section > p{font-size:.88rem;color:var(--muted);margin-bottom:2rem;line-height:1.7}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+    .form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+    .form-group label{font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .form-group input,.form-group select,.form-group textarea{
+      font-family:var(--sans);font-size:.9rem;padding:.65rem .9rem;
+      border:1px solid var(--rule);background:#fff;color:var(--ink);
+      outline:none;transition:border-color .2s;border-radius:2px;
+    }
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--ink)}
+    .form-group textarea{resize:vertical;min-height:110px}
+    .form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6860' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center}
+    .optional{font-weight:300;font-style:italic;color:var(--muted);margin-left:.3rem;font-size:.7rem;text-transform:none;letter-spacing:0}
+    .submit-btn{
+      font-family:var(--sans);font-size:.82rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+      padding:.8rem 2rem;background:var(--ink);color:var(--paper);border:none;cursor:pointer;
+      transition:background .2s;border-radius:2px;
+    }
+    .submit-btn:hover{background:var(--accent)}
+    .submit-btn:disabled{opacity:.5;cursor:not-allowed}
+    .form-status{margin-top:1rem;font-size:.88rem;padding:.75rem 1rem;border-radius:2px;display:none}
+    .form-status.success{background:#dff0d8;color:#2a6e1a;display:block}
+    .form-status.error{background:#fce4d6;color:#8c2a00;display:block}
+    .processing{display:none;font-size:.82rem;color:var(--muted);margin-top:.75rem;font-style:italic}
+    .processing.show{display:block}
+
+    /* Filter bar */
+    .feed-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
+    .feed-header h2{font-family:var(--serif);font-size:1.3rem;font-weight:700}
+    .feed-count{font-size:.82rem;color:var(--muted)}
+    .filter-row{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .filter-btn{font-size:.74rem;padding:.28rem .75rem;border:1px solid var(--rule);background:transparent;color:var(--muted);cursor:pointer;border-radius:2px;transition:all .15s;font-family:var(--sans)}
+    .filter-btn:hover,.filter-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+    /* Comment cards */
+    .comments-feed{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+    .comment-card{background:var(--paper);padding:1.4rem 1.5rem}
+    .comment-card:hover{background:#fff}
+    .comment-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.75rem;flex-wrap:wrap}
+    .comment-meta{display:flex;flex-direction:column;gap:.2rem}
+    .comment-author{font-weight:500;font-size:.9rem}
+    .comment-org{font-size:.78rem;color:var(--muted)}
+    .comment-date{font-size:.75rem;color:var(--muted)}
+    .comment-badges{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+    .badge{display:inline-block;font-size:.68rem;font-weight:500;padding:.15rem .5rem;border-radius:2px;letter-spacing:.03em;white-space:nowrap}
+    .badge-section{background:#e8e4f8;color:#3a2a80}
+    .badge-type-correction{background:#fce4d6;color:#8c2a00}
+    .badge-type-addition{background:#dff0d8;color:#2a6e1a}
+    .badge-type-disagreement{background:#fff3cd;color:#7a5c00}
+    .badge-type-question{background:#d6eaf8;color:#0a4a7a}
+    .badge-type-general{background:#ede9e2;color:#4a4840}
+    .badge-priority-high{background:#c8401a;color:#fff}
+    .badge-priority-medium{background:#e07b39;color:#fff}
+    .badge-priority-low{background:#ede9e2;color:#4a4840}
+    .comment-body{font-size:.9rem;color:#2d2d2a;line-height:1.75;margin-bottom:.75rem}
+    .ai-summary{font-size:.8rem;color:var(--muted);font-style:italic;padding:.6rem .85rem;background:#f0ece6;border-left:2px solid var(--rule);margin-top:.5rem;line-height:1.6}
+    .ai-summary strong{color:var(--ink);font-style:normal;font-weight:500}
+
+    .empty-state{text-align:center;padding:4rem 2rem;color:var(--muted);font-size:.9rem;font-style:italic}
+    .loading{text-align:center;padding:3rem;color:var(--muted);font-size:.88rem}
+
+    .divider{border:none;border-top:1px solid var(--rule);margin:3rem 0}
+
+    footer{border-top:1px solid var(--rule);max-width:760px;margin:0 auto;padding:2.5rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+    .footer-note{font-size:.78rem;color:var(--muted)}
+    .footer-note a{color:var(--muted)}
+    .footer-sig{font-family:var(--serif);font-size:.82rem;color:var(--muted);font-style:italic}
+
+    @media(max-width:620px){
+      .nav-links{display:none}
+      .page-header,.main{padding-left:1.25rem;padding-right:1.25rem}
+      .form-grid{grid-template-columns:1fr}
+      footer{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Structures for Research</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Overview</a></li>
+    <li><a href="compare.html">Compare</a></li>
+    <li><a href="institutions.html">Directory</a></li>
+    <li><a href="feedback.html" class="active">Community</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="eyebrow">Community</p>
+  <h1>Suggestions &amp; peer review</h1>
+  <p>This site is a living document. If you spot an error, disagree with a categorisation, know of an institution we've missed, or have something to add — please submit it below. All submissions are public and reviewed by the maintainer. No account required.</p>
+</div>
+
+<div class="main">
+
+  <!-- SUBMISSION FORM -->
+  <div class="form-section">
+    <h2>Submit a comment or suggestion</h2>
+    <p>Your submission will be automatically categorised by AI and appear in the public feed below. Fields marked optional can be left blank — anonymous submissions are welcome.</p>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Your name <span class="optional">optional</span></label>
+        <input type="text" id="f-name" placeholder="e.g. Jane Smith" />
+      </div>
+      <div class="form-group">
+        <label>Organisation <span class="optional">optional</span></label>
+        <input type="text" id="f-org" placeholder="e.g. Convergent Research" />
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Which section does this relate to?</label>
+        <select id="f-section">
+          <option value="General">General / whole site</option>
+          <option value="Overview page">Overview page</option>
+          <option value="Industrial Labs">Industrial Labs</option>
+          <option value="Government & Mission Labs">Government &amp; Mission Labs</option>
+          <option value="Nonprofit Research Institutes">Nonprofit Research Institutes</option>
+          <option value="Next-Gen Institutes">Next-Gen Institutes</option>
+          <option value="FROs">Focused Research Organisations (FROs)</option>
+          <option value="BBNs / FRCs">BBNs / Frontier Research Contracts</option>
+          <option value="ARPA-style Orgs">ARPA-style Organisations</option>
+          <option value="Comparison table">Comparison table</option>
+          <option value="Directory">Institution directory</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Type of feedback</label>
+        <select id="f-type">
+          <option value="Addition">Addition — something missing</option>
+          <option value="Correction">Correction — something wrong</option>
+          <option value="Disagreement">Disagreement — I'd frame this differently</option>
+          <option value="Question">Question — I don't understand something</option>
+          <option value="General">General — other feedback</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Your comment or suggestion</label>
+      <textarea id="f-comment" placeholder="Be as specific as possible — cite sources if relevant, and suggest alternative wording if you have it."></textarea>
+    </div>
+
+    <button class="submit-btn" id="submit-btn" onclick="submitComment()">Submit →</button>
+    <p class="processing" id="processing">Submitting and running AI analysis… this takes a few seconds.</p>
+    <div class="form-status" id="form-status"></div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- PUBLIC FEED -->
+  <div>
+    <div class="feed-header">
+      <h2>All submissions</h2>
+      <span class="feed-count" id="feed-count"></span>
+    </div>
+
+    <div class="filter-row" id="filter-row">
+      <button class="filter-btn active" onclick="filterComments('all', this)">All</button>
+      <button class="filter-btn" onclick="filterComments('Addition', this)">Additions</button>
+      <button class="filter-btn" onclick="filterComments('Correction', this)">Corrections</button>
+      <button class="filter-btn" onclick="filterComments('Disagreement', this)">Disagreements</button>
+      <button class="filter-btn" onclick="filterComments('Question', this)">Questions</button>
+    </div>
+
+    <div id="comments-container">
+      <div class="loading">Loading submissions…</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-note"><a href="index.html">← Back to overview</a> &nbsp;·&nbsp; All submissions are public and unedited. The maintainer reviews suggestions and incorporates accepted changes into the site.</p>
+  <p class="footer-sig">structuresforresearch.com</p>
+</footer>
+
+<script>
+const SUPABASE_URL = 'https://evihoudzrcagyndpdmjj.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2aWhvdWR6cmNhZ3luZHBkbWpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyNTczNTYsImV4cCI6MjA5MTgzMzM1Nn0.jiXEUrxI3yOdNZsBDd2X7WIosgNut6TFQobvPAOPXng';
+
+let allComments = [];
+let currentFilter = 'all';
+
+// ── FETCH & DISPLAY COMMENTS ──
+async function loadComments() {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/comments?order=created_at.desc`, {
+      headers: {
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+      }
+    });
+    allComments = await res.json();
+    renderComments(allComments);
+  } catch(e) {
+    document.getElementById('comments-container').innerHTML = '<div class="empty-state">Could not load submissions. Please refresh the page.</div>';
+  }
+}
+
+function renderComments(comments) {
+  const container = document.getElementById('comments-container');
+  const countEl = document.getElementById('feed-count');
+
+  const filtered = currentFilter === 'all' ? comments : comments.filter(c => c.comment_type === currentFilter || c.ai_category === currentFilter);
+  countEl.textContent = `${filtered.length} submission${filtered.length !== 1 ? 's' : ''}`;
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="empty-state">No submissions yet in this category. Be the first to contribute.</div>';
+    return;
+  }
+
+  container.innerHTML = `<div class="comments-feed">${filtered.map(renderCard).join('')}</div>`;
+}
+
+function renderCard(c) {
+  const date = new Date(c.created_at).toLocaleDateString('en-AU', {day:'numeric', month:'short', year:'numeric'});
+  const typeClass = `badge-type-${(c.comment_type || 'general').toLowerCase()}`;
+  const priorityClass = c.ai_priority ? `badge-priority-${c.ai_priority.toLowerCase()}` : '';
+
+  return `
+    <div class="comment-card">
+      <div class="comment-top">
+        <div class="comment-meta">
+          <span class="comment-author">${c.name || 'Anonymous'}</span>
+          ${c.organisation ? `<span class="comment-org">${c.organisation}</span>` : ''}
+          <span class="comment-date">${date}</span>
+        </div>
+        <div class="comment-badges">
+          ${c.section ? `<span class="badge badge-section">${c.section}</span>` : ''}
+          ${c.comment_type ? `<span class="badge ${typeClass}">${c.comment_type}</span>` : ''}
+          ${c.ai_priority && c.ai_priority.toLowerCase() === 'high' ? `<span class="badge ${priorityClass}">High priority</span>` : ''}
+        </div>
+      </div>
+      <div class="comment-body">${escapeHtml(c.comment)}</div>
+      ${c.ai_summary ? `<div class="ai-summary"><strong>AI summary:</strong> ${escapeHtml(c.ai_summary)}</div>` : ''}
+    </div>
+  `;
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function filterComments(type, btn) {
+  currentFilter = type;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderComments(allComments);
+}
+
+// ── SUBMIT COMMENT ──
+async function submitComment() {
+  const comment = document.getElementById('f-comment').value.trim();
+  if (!comment) {
+    showStatus('Please enter a comment before submitting.', 'error');
+    return;
+  }
+
+  const name = document.getElementById('f-name').value.trim();
+  const org = document.getElementById('f-org').value.trim();
+  const section = document.getElementById('f-section').value;
+  const type = document.getElementById('f-type').value;
+
+  setLoading(true);
+
+  // Step 1 — get AI analysis
+  let aiCategory = type;
+  let aiSummary = '';
+  let aiPriority = 'medium';
+
+  try {
+    const aiRes = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{
+          role: 'user',
+          content: `You are helping moderate a public feedback database for a research reference website called "Structures for Research" — a site that catalogues alternative structures for research institutions (FROs, ARPA-style orgs, Nonprofit Research Institutes, Next-Gen Institutes, BBNs, Government Labs, Industrial Labs).
+
+A visitor has submitted the following feedback:
+Section: ${section}
+Type selected by user: ${type}
+Comment: "${comment}"
+
+Respond ONLY with a JSON object (no markdown, no explanation) with exactly these fields:
+{
+  "category": one of [Addition, Correction, Disagreement, Question, General],
+  "summary": a single sentence (max 20 words) summarising the core point of the feedback,
+  "priority": one of [high, medium, low] — high means it identifies a significant error or important missing content, low means minor or general
+}`
+        }]
+      })
+    });
+
+    const aiData = await aiRes.json();
+    const text = aiData.content?.[0]?.text || '{}';
+    const parsed = JSON.parse(text.replace(/```json|```/g, '').trim());
+    aiCategory = parsed.category || type;
+    aiSummary = parsed.summary || '';
+    aiPriority = parsed.priority || 'medium';
+  } catch(e) {
+    // AI failed — still submit without AI tags
+    aiSummary = '';
+  }
+
+  // Step 2 — save to Supabase
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/comments`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        name: name || null,
+        organisation: org || null,
+        section,
+        comment_type: type,
+        comment,
+        ai_category: aiCategory,
+        ai_summary: aiSummary,
+        ai_priority: aiPriority
+      })
+    });
+
+    if (!res.ok) throw new Error('Save failed');
+
+    showStatus('Thank you — your submission has been received and is now publicly visible below.', 'success');
+    document.getElementById('f-comment').value = '';
+    document.getElementById('f-name').value = '';
+    document.getElementById('f-org').value = '';
+    await loadComments();
+
+  } catch(e) {
+    showStatus('Something went wrong saving your submission. Please try again.', 'error');
+  }
+
+  setLoading(false);
+}
+
+function setLoading(on) {
+  document.getElementById('submit-btn').disabled = on;
+  document.getElementById('processing').classList.toggle('show', on);
+}
+
+function showStatus(msg, type) {
+  const el = document.getElementById('form-status');
+  el.textContent = msg;
+  el.className = `form-status ${type}`;
+}
+
+// ── INIT ──
+loadComments();
+</script>
+
+</body>
+</html>
