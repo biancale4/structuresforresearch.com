@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compare Structures — Structures for Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root{--ink:#1a1a18;--paper:#f7f5f0;--muted:#6b6860;--accent:#c8401a;--rule:#d9d5cc;--serif:'Libre Baskerville',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:sticky;top:0;z-index:200;background:var(--paper);border-bottom:1px solid var(--rule);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav-logo{font-family:var(--serif);font-size:.95rem;color:var(--ink);text-decoration:none}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+    .page-header{max-width:760px;margin:0 auto;padding:3.5rem 2rem 2.5rem;border-bottom:1px solid var(--rule)}
+    .eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+    .page-header h1{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
+    .page-header p{font-size:.95rem;color:var(--muted);max-width:560px;line-height:1.75}
+    .coord-note{background:#fff;border:1px solid var(--rule);padding:.9rem 1.25rem;margin-top:1.5rem;font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:.75rem}
+    .coord-bar{height:8px;width:160px;background:linear-gradient(to right,#ede9e2,#1a1a18);border-radius:2px;flex-shrink:0}
+
+    /* Table container */
+    .table-outer{overflow-x:auto;border-top:1px solid var(--rule)}
+    table{border-collapse:collapse;min-width:1400px;width:100%;font-size:.82rem}
+    /* Sticky row label */
+    thead th{position:sticky;top:56px;z-index:100;background:var(--paper);border-bottom:2px solid var(--ink);padding:.9rem 1rem;text-align:left;font-family:var(--serif);font-size:.82rem;font-weight:700;white-space:nowrap;vertical-align:bottom}
+    thead th:first-child{position:sticky;left:0;z-index:150;background:var(--paper);min-width:170px;border-right:1px solid var(--rule)}
+    thead th .th-sub{display:block;font-family:var(--sans);font-weight:300;font-style:italic;font-size:.74rem;color:var(--muted);margin-top:.2rem;white-space:normal;max-width:140px;line-height:1.4}
+    /* Color dots in header */
+    .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.4rem;vertical-align:middle;flex-shrink:0}
+    tbody tr td:first-child{position:sticky;left:0;background:var(--paper);border-right:1px solid var(--rule);z-index:50;font-weight:500;font-size:.8rem;padding:.85rem 1rem;color:var(--ink);vertical-align:top;line-height:1.5;white-space:nowrap}
+    tbody tr:nth-child(even) td:first-child{background:#f0ece6}
+    tbody tr{border-bottom:1px solid var(--rule)}
+    tbody tr:nth-child(even){background:#f0ece6}
+    tbody td{padding:.85rem 1rem;vertical-align:top;line-height:1.6;color:#2d2d2a;min-width:155px;max-width:220px}
+    .badge{display:inline-block;font-size:.72rem;font-weight:500;padding:.15rem .5rem;border-radius:2px;letter-spacing:.03em}
+    .badge-high{background:#dff0d8;color:#2a6e1a}
+    .badge-very-high{background:#c8e6c9;color:#1a5c12}
+    .badge-medium{background:#fff3cd;color:#7a5c00}
+    .badge-low{background:#fce4d6;color:#8c2a00}
+    .badge-mixed{background:#e8e4f8;color:#3a2a80}
+    .row-label-group{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding:.6rem 1rem .2rem;background:transparent;border:none}
+    .row-label-group td{padding:.6rem 1rem .2rem;font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--paper)!important;border-bottom:none!important;position:sticky;left:0}
+
+    footer{border-top:1px solid var(--rule);max-width:1400px;margin:0 auto;padding:2rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+    .footer-note{font-size:.78rem;color:var(--muted)}
+    .footer-sig{font-family:var(--serif);font-size:.82rem;color:var(--muted);font-style:italic}
+    @media(max-width:620px){.nav-links{display:none}.page-header{padding:2rem 1.25rem}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">Structures for Research</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Overview</a></li>
+    <li><a href="compare.html" class="active">Compare</a></li>
+    <li><a href="institutions.html">Directory</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="eyebrow">Full comparison</p>
+  <h1>All structures, side by side</h1>
+  <p>Every structure evaluated across the same criteria — from organisational design and funding horizon to talent attraction and risk tolerance. Scroll right to see all nine. Academia and Industry are included as a baseline.</p>
+  <div class="coord-note">
+    <div class="coord-bar"></div>
+    <span>Coordination increases left to right — from decentralised PI-led labs to tightly managed external programme networks.</span>
+  </div>
+</div>
+
+<div class="table-outer">
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th><span class="dot" style="background:#5b8db8"></span>Academia<span class="th-sub">Decentralised PI model</span></th>
+    <th><span class="dot" style="background:#e07b39"></span>Industry / Startups<span class="th-sub">Corporate R&amp;D</span></th>
+    <th><span class="dot" style="background:#6b8e6b"></span>Industrial Labs<span class="th-sub">Bell Labs model</span></th>
+    <th><span class="dot" style="background:#7b6ea6"></span>Govt / Mission Labs<span class="th-sub">National mandate</span></th>
+    <th><span class="dot" style="background:#4a9b8a"></span>Nonprofit Research Institutes<span class="th-sub">Domain-focused</span></th>
+    <th><span class="dot" style="background:#c8401a"></span>Next-Gen Institutes<span class="th-sub">Redesigned incentives</span></th>
+    <th><span class="dot" style="background:#2d7d9a"></span>FROs<span class="th-sub">Focused Research Orgs</span></th>
+    <th><span class="dot" style="background:#b5882d"></span>BBNs / FRCs<span class="th-sub">Frontier Research Contracts</span></th>
+    <th><span class="dot" style="background:#6b4e8a"></span>ARPA-style Orgs<span class="th-sub">Programme-managed</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Examples</td>
+    <td>Universities globally</td>
+    <td>Pharma, tech companies; VC-backed startups; SBIR-funded small firms</td>
+    <td>Bell Labs, Xerox PARC, DuPont Experimental Station, GE Research, IBM Research, Ink and Switch</td>
+    <td>CSIRO, Battelle Memorial Institute, US DOE National Labs, Fraunhofer Society, RIKEN</td>
+    <td>Max Planck Society, Scripps Research, Francis Crick Institute, Howard Hughes Medical Institute, Broad Institute</td>
+    <td>Arc Institute, CZI Biohub</td>
+    <td>E11 Bio, Cultivarium, Parallel Squared Technology Institute (all via Convergent Research)</td>
+    <td>BBN Technologies, SRI International, MITRE Corporation</td>
+    <td>DARPA, ARPA-E, ARPA-H, IARPA, ARIA (UK), SPRIND (Germany), Speculative Technologies, Actuate, Wellcome Leap</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>Decentralised system of PI-led labs funded by competitive grants</td>
+    <td>Research embedded in companies and startups, tied to products and commercial returns</td>
+    <td>Corporate-funded labs operating with research autonomy from business units — historically the most productive research environments ever created</td>
+    <td>Publicly funded labs solving national and strategic problems with long-term mandates</td>
+    <td>Independent institutes housing multiple PI-led labs under one organisation</td>
+    <td>Institutes that intentionally redesign incentives, funding, and infrastructure while retaining PI-like autonomy</td>
+    <td>Independent, standalone orgs built to execute a specific scientific or technical goal with a unified full-time team</td>
+    <td>Contract-based networks that assemble elite teams across institutions to tackle defined frontier problems</td>
+    <td>Agencies that fund and coordinate external research teams toward ambitious, high-risk goals via empowered programme managers</td>
+  </tr>
+  <tr>
+    <td>Org structure</td>
+    <td>Highly decentralised; PI autonomy; loose coordination between labs</td>
+    <td>Hierarchical with cross-functional teams; product-aligned divisions</td>
+    <td>Semi-centralised; research director with autonomous lab groups embedded within (but distinct from) corporate hierarchy</td>
+    <td>Hierarchical with programmatic divisions; government oversight; shared infrastructure</td>
+    <td>Semi-decentralised clusters of labs under shared institutional umbrella</td>
+    <td>Hybrid: PI autonomy + strong central platforms and shared infrastructure</td>
+    <td>Centralised, in-house teams with unified leadership. Core team does all research design. Internalised research enables tight iteration loops. Ideally autonomous from funding source.</td>
+    <td>Distributed teams coordinated through contracts, often spanning multiple institutions. Core team coordinates — external orgs execute. Enables parallel tracks without internal politics.</td>
+    <td>Centralised programme managers coordinating external performers. Single PM is the "core team." External research enables parallel tracks, flexible recombination, and access to specialised expertise without hiring.</td>
+  </tr>
+  <tr>
+    <td>Funding horizon</td>
+    <td>Short–medium: 2–5 year grants; can chain via tenure</td>
+    <td>Short–medium: months to 3-year runway</td>
+    <td>Long when corporate will maintained (decades); vulnerable to ownership changes and strategy shifts</td>
+    <td>Long: 5–20+ years; stable institutional funding</td>
+    <td>Medium: 3–7 year programme funding</td>
+    <td>~8 years per programme</td>
+    <td>~10 years (org lifespan tied to mission). Deploys ~$10M in year one, ~$50M over lifespan. Shuts down on mission completion.</td>
+    <td>Short–medium: 1–5 years per contract; can chain into longer programmes</td>
+    <td>3–5 years per programme. PARPA-style programs ramp slowly (from ~$200K over 6 months up to FRO-level funding) with go/no-go gates.</td>
+  </tr>
+  <tr>
+    <td>Outputs</td>
+    <td>Papers, trained researchers</td>
+    <td>Products, IP, patents</td>
+    <td>Foundational technologies, patents, breakthrough papers (transistor, laser, Unix, C, GUI, Ethernet)</td>
+    <td>Technologies, national capabilities, shared infrastructure</td>
+    <td>Papers, some translational outputs</td>
+    <td>Platforms, datasets, papers</td>
+    <td>Tools, datasets, platforms, scientific infrastructure — public goods, not products</td>
+    <td>Capabilities, prototypes, strategic outputs (e.g. biosecurity tools, datasets, frontier systems)</td>
+    <td>Prototypes, validated capabilities, proof-of-concept demonstrations; expects transition pathways to other sectors</td>
+  </tr>
+  <tr>
+    <td>Research problem type</td>
+    <td>Early-stage, exploratory, curiosity-driven science</td>
+    <td>Product-aligned, commercialisable problems</td>
+    <td>Mix of basic and strategically applied; defined by adjacency to parent domain but with latitude for pure research</td>
+    <td>National priorities (energy, defence, health, agriculture)</td>
+    <td>Domain-specific scientific problems</td>
+    <td>Important but underexplored scientific areas; platform-building in emerging fields</td>
+    <td>Clearly scoped bottlenecks requiring tight coordination. Clear goal from day one. Tight coupling between workstreams. Strong conviction about the right approach early on.</td>
+    <td>Frontier, mission-driven problems requiring flexible, high-end expertise across organisations. Often engineering-heavy and deliverable-driven.</td>
+    <td>High-risk "white space" problems. High-risk, high-reward with defined programme goals but no clear best approach. May take 6–12 months to nail down the goal.</td>
+  </tr>
+  <tr>
+    <td>Risk tolerance</td>
+    <td><span class="badge badge-medium">Medium</span><br>Constrained by grant cycles, journal incentives, career risk</td>
+    <td><span class="badge badge-low">Low–Medium</span><br>Risk tolerated only if tied to plausible commercial upside</td>
+    <td><span class="badge badge-high">High</span><br>Historically very high; corporate capture eventually reduces over time</td>
+    <td><span class="badge badge-medium">Medium–High</span><br>Can take ambitious problems within government mission constraints</td>
+    <td><span class="badge badge-medium">Medium</span><br>Depends heavily on funders; philanthropy can enable risk but often conservative</td>
+    <td><span class="badge badge-high">High</span><br>Long-term funding removes short-term pressure</td>
+    <td><span class="badge badge-very-high">Very High</span><br>Purpose-built for high-risk execution; explicit tolerance for failure</td>
+    <td><span class="badge badge-very-high">Very High</span><br>Strong; flexible contracting enables unusual collaborations</td>
+    <td><span class="badge badge-very-high">Very High</span><br>Explicitly funds "no one else will fund this" work; ~85% of DARPA projects fail to meet original goals by design</td>
+  </tr>
+  <tr>
+    <td>Predominant funding source</td>
+    <td>Government grants (NIH, NSF, ARC etc.)</td>
+    <td>Revenue / VC; sometimes government (SBIR) or philanthropy (MRIs, PRIs)</td>
+    <td>Corporate (parent company)</td>
+    <td>Government appropriations</td>
+    <td>Mix: grants + philanthropy + endowment</td>
+    <td>Philanthropy + endowment</td>
+    <td>Philanthropy (typically) or hybrid public-philanthropic</td>
+    <td>Government and/or industry contracts</td>
+    <td>Government</td>
+  </tr>
+  <tr>
+    <td>Key weaknesses</td>
+    <td>Fragmentation; short timelines; weak coordination across labs</td>
+    <td>Short-termism; commercialisation bias; limited public-good research</td>
+    <td>Dependent on parent company; nearly extinct as a model; corporate short-termism eventually dominates</td>
+    <td>Bureaucracy; slower iteration; constrained by political mandates</td>
+    <td>Still PI-siloed; moderate coordination; philanthropy often still conservative</td>
+    <td>Not fully integrated; still PI-based; coordination is improved but not transformed</td>
+    <td>Fundraising is a key bottleneck ($20–100M required). High upfront cost. Difficult to set up. Requires strong leadership and careful problem selection.</td>
+    <td>Ongoing financial risk (no guaranteed funding like FROs). Coordination complexity. Reliance on external performers. Risk of becoming a pure R&amp;D contractor (Battelle/Raytheon failure mode).</td>
+    <td>No in-house execution; depends on ecosystem quality; PM turnover risk; success requires exceptional programme managers</td>
+  </tr>
+  <tr>
+    <td>Talent attraction &amp; collaboration</td>
+    <td>Strong within discipline. Weaker for integrated, cross-functional teams — incentives are siloed. Wide collaboration but slow coordination.</td>
+    <td>Strong for execution-focused, applied cross-functional teams. Less appeal for pure theorists.</td>
+    <td>Historically extremely strong — offered stability, resources, peer community, and academic freedom simultaneously</td>
+    <td>Strong for large-scale, multidisciplinary, infrastructure-heavy work. Less fluid than startups or FROs.</td>
+    <td>Very strong within discipline. Operates like a large, coordinated university department. Weaker for broad cross-sector integration.</td>
+    <td>Very strong; curated and stable environment with long-term backing</td>
+    <td>Extremely strong — mission-driven, full-time, cross-functional teams. Purpose-built to overcome academic silos.</td>
+    <td>Very strong — can pull top talent across institutions; but less cohesion than in-house teams</td>
+    <td>Very strong at orchestrating talent across academia, industry, and labs. Not a home for talent but a network hub — exceptional at activating and connecting performers.</td>
+  </tr>
+  <tr>
+    <td>Ambition level</td>
+    <td><span class="badge badge-medium">Medium</span><br>Risky ideas possible but constrained by grant cycles and career incentives</td>
+    <td><span class="badge badge-low">Low–Medium</span><br>Truly speculative work rare; risk tied to commercial upside</td>
+    <td><span class="badge badge-very-high">Very High</span><br>Historically unconstrained; eroded over time by corporate context</td>
+    <td><span class="badge badge-medium">Medium–High</span><br>Ambitious within government mission constraints</td>
+    <td><span class="badge badge-medium">Medium</span><br>Philanthropy enables risk but often still conservative</td>
+    <td><span class="badge badge-high">High</span><br>Long-term funding removes pressure; PI freedom maintained</td>
+    <td><span class="badge badge-very-high">Very High</span><br>Purpose-built diverse teams under one roof; designed to overcome silos</td>
+    <td><span class="badge badge-high">High</span><br>Flexible contracting enables unusual collaborations; execution incentives can be difficult</td>
+    <td><span class="badge badge-very-high">Very High</span><br>Explicitly funds "no one else will fund this" — highest ambition tolerance of any structure</td>
+  </tr>
+  <tr>
+    <td>Tech dev vs. commercialisation</td>
+    <td>Predominantly basic science. Limited commercialisation pressure; translational work often underfunded.</td>
+    <td>Translational / commercialisable only. Mid-stage tech pursued only if it de-risks product roadmap.</td>
+    <td>Long-run technology development; low immediate pressure, but corporate connection creates eventual commercialisation pull</td>
+    <td>Mix of applied and fundamental; less pressure for commercial returns, more for mission outcomes (energy, defence)</td>
+    <td>Sits between basic and translational; some pressure to show impact but not full commercialisation</td>
+    <td>Technology development without immediate commercialisation pressure</td>
+    <td>Technology development as public goods, platforms, and datasets. No commercialisation pressure.</td>
+    <td>Capability creation rather than products; low immediate commercial pressure; oriented toward strategic outcomes</td>
+    <td>Breakthrough prototypes and proof-of-concept; no direct commercialisation pressure but expects transition pathways to military, commercial, or government sectors</td>
+  </tr>
+  <tr>
+    <td>Past research examples</td>
+    <td>Gene discovery, theoretical physics, foundational chemistry</td>
+    <td>Drug development, AI products, semiconductor manufacturing</td>
+    <td>Transistor, information theory, Unix, C language, laser, solar cell, GUI, Ethernet, laser printer</td>
+    <td>Nuclear energy, climate modelling, agricultural genomics</td>
+    <td>Cancer biology, immunology, structural biology</td>
+    <td>Cell atlases, biological platforms, single-cell sequencing</td>
+    <td>Whole-cell modelling, biological atlases, new measurement technologies</td>
+    <td>Biosecurity infrastructure, rapid response platforms, high-containment biology capabilities</td>
+    <td>Internet, GPS, stealth technology, mRNA vaccine platforms</td>
+  </tr>
+  <tr>
+    <td>Problems that benefit from this structure</td>
+    <td>Early-stage, exploratory science with no defined application</td>
+    <td>Productisable technologies with clear market</td>
+    <td>Long-run basic and applied research requiring sustained resources and freedom — now rare; modern analogue may be philanthropically-funded industrial-style labs</td>
+    <td>National-scale infrastructure problems; defence technologies; strategic energy</td>
+    <td>Deep domain scientific questions requiring long-term investigator focus</td>
+    <td>Platform-building in emerging scientific fields; problems needing redesigned researcher incentives</td>
+    <td>Brain mapping at scale; bespoke biotech instrumentation; new measurement pipelines; research software and datasets; pilot-plant-scale work; translation of academic ideas to non-venture markets</td>
+    <td>Pandemic response systems; novel bio-defence capabilities; rapid assembly of elite cross-institutional teams around defined frontier deliverables</td>
+    <td>High-risk, cross-domain breakthroughs needing coordination across many performers; problems where the right approach is genuinely unknown at the outset</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<footer>
+  <p class="footer-note"><a href="index.html">&#x2190; Back to overview</a> &nbsp;&middot;&nbsp; <a href="institutions.html">Browse the directory</a></p>
+  <p class="footer-sig">structuresforresearch.com</p>
+</footer>
+</body>
+</html>
