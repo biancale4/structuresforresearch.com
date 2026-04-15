@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Structures for Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:#1a1a18;--paper:#f7f5f0;--muted:#6b6860;--accent:#c8401a;--rule:#d9d5cc;
+      --serif:'Libre Baskerville',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+    nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav-logo{font-family:var(--serif);font-size:.95rem;color:var(--ink);text-decoration:none}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+
+    .hero{max-width:760px;margin:0 auto;padding:5rem 2rem 4rem;border-bottom:1px solid var(--rule)}
+    .eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem}
+    .hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:1.5rem}
+    .hero-lead{font-size:1.05rem;color:var(--muted);max-width:600px;font-weight:300;line-height:1.8}
+    .hero-lead strong{color:var(--ink);font-weight:500}
+
+    .content{max-width:760px;margin:0 auto;padding:4rem 2rem;border-bottom:1px solid var(--rule)}
+    .content:last-of-type{border-bottom:none}
+    .section-label{font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem}
+    h2{font-family:var(--serif);font-size:clamp(1.3rem,3vw,1.6rem);font-weight:700;line-height:1.25;margin-bottom:1.25rem}
+    p{margin-bottom:1.1rem;font-size:.97rem;line-height:1.85;color:#2d2d2a}
+    p:last-child{margin-bottom:0}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Reading list */
+    .reading-list{margin-top:1.5rem;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+    .reading-item{background:var(--paper);padding:1.1rem 1.4rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start}
+    .reading-item:hover{background:#fff}
+    .reading-title{font-family:var(--serif);font-size:.92rem;font-weight:700;margin-bottom:.2rem}
+    .reading-meta{font-size:.78rem;color:var(--muted)}
+    .reading-note{font-size:.82rem;color:#2d2d2a;margin-top:.3rem;line-height:1.6}
+    .reading-link{font-size:.75rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);white-space:nowrap;padding-top:.2rem}
+
+    /* Principles */
+    .principles{margin-top:1.5rem;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+    .principle{background:var(--paper);padding:1.1rem 1.4rem;display:grid;grid-template-columns:32px 1fr;gap:.75rem;align-items:start}
+    .principle-num{font-family:var(--serif);font-size:1.1rem;color:var(--accent);font-weight:700;padding-top:.1rem}
+    .principle-text{font-size:.9rem;color:#2d2d2a;line-height:1.7}
+    .principle-text strong{font-weight:500;color:var(--ink)}
+
+    /* Contact box */
+    .contact-box{background:#fff;border:1px solid var(--rule);padding:1.75rem;margin-top:1.5rem}
+    .contact-box p{font-size:.9rem;margin-bottom:.75rem}
+    .contact-box p:last-child{margin-bottom:0}
+    .email-link{font-family:var(--serif);font-size:1rem;color:var(--accent)}
+
+    footer{border-top:1px solid var(--rule);max-width:760px;margin:0 auto;padding:2.5rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+    .footer-note{font-size:.78rem;color:var(--muted)}
+    .footer-sig{font-family:var(--serif);font-size:.82rem;color:var(--muted);font-style:italic}
+
+    @media(max-width:620px){
+      .nav-links{display:none}
+      .hero,.content{padding-left:1.25rem;padding-right:1.25rem}
+      .reading-item{grid-template-columns:1fr}
+      footer{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Structures for Research</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Overview</a></li>
+    <li><a href="compare.html">Compare</a></li>
+    <li><a href="institutions.html">Directory</a></li>
+    <li><a href="feedback.html">Community</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <p class="eyebrow">About this site</p>
+  <h1>Why this exists</h1>
+  <p class="hero-lead">
+    Most conversations about research funding and careers default to two options: academia or industry. But the landscape is far richer than that — and most people navigating it have no map. <strong>Structures for Research</strong> is an attempt to build one.
+  </p>
+</section>
+
+<!-- ABOUT THE PROJECT -->
+<section class="content">
+  <p class="section-label">The project</p>
+  <h2>What this site is</h2>
+  <p>Structures for Research is a public reference cataloguing the different organisational structures used by research institutions operating outside of traditional academia and industry. It covers everything from ARPA-style government agencies to Focused Research Organisations, philanthropic institutes, contract research networks, and field-building organisations.</p>
+  <p>The goal is to give researchers, funders, policymakers, and anyone thinking seriously about science a clear and accurate map of the institutional landscape — what each structure is, how it works, what kinds of problems it is best suited to, and real-world examples of each.</p>
+  <p>This is a living document. It will be updated as the field evolves, new institution types emerge, and the community contributes corrections and additions. The full submission history is public on the <a href="feedback.html">Community page</a>.</p>
+</section>
+
+<!-- EDITORIAL PRINCIPLES -->
+<section class="content">
+  <p class="section-label">Editorial approach</p>
+  <h2>How content is developed</h2>
+  <p>The content on this site is based on primary sources, published research, and direct engagement with the research institution community. Where reasonable people disagree on categorisation or framing, this site tries to represent those disagreements honestly rather than paper over them.</p>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="principle-num">1</div>
+      <div class="principle-text"><strong>Accuracy over completeness.</strong> It is better to cover fewer structures well than to cover more structures poorly. Entries are only included when there is sufficient public information to describe them accurately.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">2</div>
+      <div class="principle-text"><strong>Transparent disagreement.</strong> The taxonomy used here is one reasonable way to categorise this landscape — not the only one. Where experts disagree on how to classify a structure or institution, that disagreement is noted rather than hidden.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">3</div>
+      <div class="principle-text"><strong>Public accountability.</strong> All suggested edits and corrections submitted via the Community page are publicly visible, whether accepted or not. The edit history of the site is tracked via GitHub.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">4</div>
+      <div class="principle-text"><strong>No institutional affiliation bias.</strong> This site has no funding from, or formal affiliation with, any of the institutions it describes. Entries are not paid placements.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">5</div>
+      <div class="principle-text"><strong>Open by default.</strong> All content is freely available with no paywalls, no accounts required, and no tracking beyond basic analytics. The source code is public on GitHub.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FURTHER READING -->
+<section class="content">
+  <p class="section-label">Further reading</p>
+  <h2>Key sources and reading</h2>
+  <p>The following pieces are the most useful starting points for understanding this space. Most are freely available online.</p>
+
+  <div class="reading-list">
+    <div class="reading-item">
+      <div>
+        <div class="reading-title">Focused Research Organizations to Accelerate Science, Technology, and Medicine</div>
+        <div class="reading-meta">Adam Marblestone &amp; Sam Rodriques — Federation of American Scientists</div>
+        <div class="reading-note">The foundational paper that defined the FRO model and made the case for a new class of research institution.</div>
+      </div>
+      <a class="reading-link" href="https://fas.org/publication/focused-research-organizations-to-accelerate-science-technology-and-medicine/" target="_blank">Read →</a>
+    </div>
+    <div class="reading-item">
+      <div>
+        <div class="reading-title">Field Notes on Moving Focused Research Organizations Forward</div>
+        <div class="reading-meta">Adam Marblestone, Anastasia Gamick &amp; Dario Chalmers — Issues in Science and Technology</div>
+        <div class="reading-note">A practical update on how the FRO model has evolved in practice, including lessons from Convergent Research's first cohort.</div>
+      </div>
+      <a class="reading-link" href="https://issues.org/focused-research-organizations-fro-marblestone-gamick-wang-fridman/" target="_blank">Read →</a>
+    </div>
+    <div class="reading-item">
+      <div>
+        <div class="reading-title">A Scrappy Complement to FROs: Building More BBNs</div>
+        <div class="reading-meta">Good Science Project</div>
+        <div class="reading-note">The best account of the BBN model — what it is, how it works, and how to think about founding one.</div>
+      </div>
+      <a class="reading-link" href="https://goodscienceproject.org/articles/a-scrappy-complement-to-fros-building-more-bbns/" target="_blank">Read →</a>
+    </div>
+    <div class="reading-item">
+      <div>
+        <div class="reading-title">The Overedge Catalog</div>
+        <div class="reading-meta">Samuel Arbesman</div>
+        <div class="reading-note">A curated collection of new and unusual research organisation types that sit at the intersection of academia, nonprofits, and tech startups.</div>
+      </div>
+      <a class="reading-link" href="https://arbesman.net/overedge/" target="_blank">Read →</a>
+    </div>
+    <div class="reading-item">
+      <div>
+        <div class="reading-title">DARPA and its ARPA-E and IARPA clones: a unique innovation organization model</div>
+        <div class="reading-meta">William B. Bonvillian — Industrial and Corporate Change, Oxford Academic</div>
+        <div class="reading-note">The definitive academic analysis of the ARPA model — what makes it distinctive, and what other institutions have attempted to replicate it.</div>
+      </div>
+      <a class="reading-link" href="https://academic.oup.com/icc/article-abstract/27/5/897/5096003" target="_blank">Read →</a>
+    </div>
+    <div class="reading-item">
+      <div>
+        <div class="reading-title">Erika's quick-start guide to research nonprofits</div>
+        <div class="reading-meta">Erika Alden DeBenedictis — Substack</div>
+        <div class="reading-note">A practical, first-person guide to starting a nonprofit research organisation outside academia — including fundraising, two-pagers, and community.</div>
+      </div>
+      <a class="reading-link" href="https://erikaaldendeb.substack.com/p/erikas-quick-start-guide-to-research" target="_blank">Read →</a>
+    </div>
+    <div class="reading-item">
+      <div>
+        <div class="reading-title">Scientific Field Creation</div>
+        <div class="reading-meta">Renaissance Philanthropy</div>
+        <div class="reading-note">A practical playbook for field-building as a philanthropic strategy — with case studies in climate, aging, and other emerging fields.</div>
+      </div>
+      <a class="reading-link" href="https://www.renaissancephilanthropy.org/playbooks/scientific-field-creation" target="_blank">Read →</a>
+    </div>
+    <div class="reading-item">
+      <div>
+        <div class="reading-title">The Future of Focused Research Organizations</div>
+        <div class="reading-meta">Essential Technology Blog</div>
+        <div class="reading-note">A 2025 update on where the FRO ecosystem is heading, including NSF Tech Labs and the broader institutional innovation landscape.</div>
+      </div>
+      <a class="reading-link" href="https://www.essentialtechnology.blog/p/the-future-of-focused-research-organizations" target="_blank">Read →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="content">
+  <p class="section-label">Contact</p>
+  <h2>Get in touch</h2>
+  <p>This site is maintained as a public good. If you have a correction, a suggestion, or would like to contribute more substantively, the best ways to reach us are below.</p>
+
+  <div class="contact-box">
+    <p>For corrections, additions, and general feedback — the fastest route is the <a href="feedback.html">Community page</a>, where submissions are public and visible to everyone.</p>
+    <p>For longer conversations, institutional collaborations, or if you'd like to be listed as a contributor or peer reviewer:</p>
+    <p><a class="email-link" href="mailto:hello@structuresforresearch.com">hello@structuresforresearch.com</a></p>
+    <p>The source code for this site is publicly available on <a href="https://github.com" target="_blank">GitHub</a>. Pull requests are welcome.</p>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-note">Structures for Research is an independent public reference with no institutional affiliation. Last updated April 2026.</p>
+  <p class="footer-sig">structuresforresearch.com</p>
+</footer>
+
+</body>
+</html>
