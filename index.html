@@ -3,7 +3,35 @@ layout: default
 title: A Field Guide
 description: A public reference to alternative structures for research institutions outside traditional academia and industry.
 ---
-
+<style>
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+  .col-card{background:#fff;border:1px solid var(--rule);padding:1.75rem}
+  .col-card h3{font-family:var(--serif);font-size:.97rem;margin-bottom:.5rem}
+  .col-card h3+ul{margin-top:.35rem}
+  .col-card h3:not(:first-of-type){margin-top:1.25rem}
+  .col-card ul{padding-left:1.2rem;font-size:.86rem;color:var(--muted)}
+  .col-card ul li{margin-bottom:.3rem;line-height:1.6}
+  .card-label{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+  .chart-wrap{margin:2.5rem 0 .5rem;overflow-x:auto}
+  .chart-note{font-size:.8rem;color:var(--muted);font-style:italic}
+  .types-grid{margin-top:2rem;border:1px solid var(--rule);display:grid;gap:1px;background:var(--rule)}
+  .type-row{background:var(--paper);display:grid;grid-template-columns:210px 1fr}
+  .type-name{padding:1.25rem 1.5rem;border-right:1px solid var(--rule)}
+  .type-name strong{font-family:var(--serif);font-size:.95rem;display:block;margin-bottom:.2rem}
+  .type-name span{font-size:.78rem;color:var(--muted);font-style:italic}
+  .type-desc{padding:1.25rem 1.5rem;font-size:.88rem;color:#2d2d2a;line-height:1.75}
+  .type-desc em{color:var(--muted);font-style:normal}
+  .cta-row{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
+  .btn{display:inline-block;font-size:.8rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;padding:.75rem 1.5rem;border:1px solid var(--ink);color:var(--ink);transition:background .2s,color .2s}
+  .btn:hover{background:var(--ink);color:var(--paper)}
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+  @media(max-width:620px){
+    .two-col{grid-template-columns:1fr}
+    .type-row{grid-template-columns:1fr}
+    .type-name{border-right:none;border-bottom:1px solid var(--rule)}
+  }
+</style>
 <section class="hero">
   <p class="eyebrow">A public reference</p>
   <h1>Alternative Structures for Research Institutions</h1>
