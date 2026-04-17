@@ -1,84 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Structures for Research — A Field Guide</title>
-  <meta name="description" content="A public reference to alternative structures for research institutions outside traditional academia and industry." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --ink:#1a1a18;--paper:#f7f5f0;--muted:#6b6860;--accent:#c8401a;--rule:#d9d5cc;
-      --serif:'Libre Baskerville',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
-    }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
-    nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px}
-    .nav-logo{font-family:var(--serif);font-size:.95rem;color:var(--ink);text-decoration:none}
-    .nav-links{display:flex;gap:2rem;list-style:none}
-    .nav-links a{font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
-    .nav-links a:hover,.nav-links a.active{color:var(--ink)}
-    .hero{max-width:760px;margin:0 auto;padding:5rem 2rem 4rem;border-bottom:1px solid var(--rule)}
-    .eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem}
-    .hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:1.5rem}
-    .hero-lead{font-size:1.05rem;color:var(--muted);max-width:600px;font-weight:300;line-height:1.8}
-    .hero-lead strong{color:var(--ink);font-weight:500}
-    .content{max-width:760px;margin:0 auto;padding:4rem 2rem;border-bottom:1px solid var(--rule)}
-    .section-label{font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem}
-    h2{font-family:var(--serif);font-size:clamp(1.4rem,3vw,1.75rem);font-weight:700;line-height:1.25;margin-bottom:1.25rem}
-    p{margin-bottom:1.1rem;font-size:.97rem;line-height:1.8;color:#2d2d2a}
-    p:last-child{margin-bottom:0}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
-    .col-card{background:#fff;border:1px solid var(--rule);padding:1.75rem}
-    .col-card h3{font-family:var(--serif);font-size:.97rem;margin-bottom:.5rem}
-    .col-card h3+ul{margin-top:.35rem}
-    .col-card h3:not(:first-of-type){margin-top:1.25rem}
-    .col-card ul{padding-left:1.2rem;font-size:.86rem;color:var(--muted)}
-    .col-card ul li{margin-bottom:.3rem;line-height:1.6}
-    .card-label{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
-    .chart-wrap{margin:2.5rem 0 .5rem;overflow-x:auto}
-    .chart-note{font-size:.8rem;color:var(--muted);font-style:italic}
-    .types-grid{margin-top:2rem;border:1px solid var(--rule);display:grid;gap:1px;background:var(--rule)}
-    .type-row{background:var(--paper);display:grid;grid-template-columns:210px 1fr}
-    .type-name{padding:1.25rem 1.5rem;border-right:1px solid var(--rule)}
-    .type-name strong{font-family:var(--serif);font-size:.95rem;display:block;margin-bottom:.2rem}
-    .type-name span{font-size:.78rem;color:var(--muted);font-style:italic}
-    .type-desc{padding:1.25rem 1.5rem;font-size:.88rem;color:#2d2d2a;line-height:1.75}
-    .type-desc em{color:var(--muted);font-style:normal}
-    .cta-row{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
-    .btn{display:inline-block;font-size:.8rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;padding:.75rem 1.5rem;border:1px solid var(--ink);color:var(--ink);transition:background .2s,color .2s}
-    .btn:hover{background:var(--ink);color:var(--paper)}
-    .btn-primary{background:var(--ink);color:var(--paper)}
-    .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
-    footer{border-top:1px solid var(--rule);max-width:760px;margin:0 auto;padding:2.5rem 2rem;display:flex;justify-content:space-between;align-items:start;gap:2rem;flex-wrap:wrap}
-    .footer-note{font-size:.8rem;color:var(--muted);max-width:420px;line-height:1.6}
-    .footer-note a{color:var(--muted)}
-    .footer-sig{font-family:var(--serif);font-size:.82rem;color:var(--muted);font-style:italic}
-    @media(max-width:620px){
-      .nav-links{display:none}
-      .hero,.content{padding-left:1.25rem;padding-right:1.25rem}
-      .two-col{grid-template-columns:1fr}
-      .type-row{grid-template-columns:1fr}
-      .type-name{border-right:none;border-bottom:1px solid var(--rule)}
-      footer{flex-direction:column}
-    }
-  </style>
-</head>
-<body>
+---
+layout: default
+title: A Field Guide
+description: A public reference to alternative structures for research institutions outside traditional academia and industry.
+---
 
-<nav>
-  <a class="nav-logo" href="index.html">Structures for Research</a>
-    <ul class="nav-links">
-    <li><a href="index.html" class="active">Overview</a></li>
-    <li><a href="structures.html">Structures</a></li>
-    <li><a href="institutions.html">Institutions</a></li>
-    <li><a href="feedback.html">Feedback</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
-</nav>
+<style>
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+  .col-card{background:#fff;border:1px solid var(--rule);padding:1.75rem}
+  .col-card h3{font-family:var(--serif);font-size:.97rem;margin-bottom:.5rem}
+  .col-card h3+ul{margin-top:.35rem}
+  .col-card h3:not(:first-of-type){margin-top:1.25rem}
+  .col-card ul{padding-left:1.2rem;font-size:.86rem;color:var(--muted)}
+  .col-card ul li{margin-bottom:.3rem;line-height:1.6}
+  .card-label{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+  .chart-wrap{margin:2.5rem 0 .5rem;overflow-x:auto}
+  .chart-note{font-size:.8rem;color:var(--muted);font-style:italic}
+  .types-grid{margin-top:2rem;border:1px solid var(--rule);display:grid;gap:1px;background:var(--rule)}
+  .type-row{background:var(--paper);display:grid;grid-template-columns:210px 1fr}
+  .type-name{padding:1.25rem 1.5rem;border-right:1px solid var(--rule)}
+  .type-name strong{font-family:var(--serif);font-size:.95rem;display:block;margin-bottom:.2rem}
+  .type-name span{font-size:.78rem;color:var(--muted);font-style:italic}
+  .type-desc{padding:1.25rem 1.5rem;font-size:.88rem;color:#2d2d2a;line-height:1.75}
+  .type-desc em{color:var(--muted);font-style:normal}
+  .cta-row{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
+  .btn{display:inline-block;font-size:.8rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;padding:.75rem 1.5rem;border:1px solid var(--ink);color:var(--ink);transition:background .2s,color .2s}
+  .btn:hover{background:var(--ink);color:var(--paper)}
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+  @media(max-width:620px){
+    .two-col{grid-template-columns:1fr}
+    .type-row{grid-template-columns:1fr}
+    .type-name{border-right:none;border-bottom:1px solid var(--rule)}
+  }
+</style>
 
 <section class="hero">
   <p class="eyebrow">A public reference</p>
@@ -91,8 +45,10 @@
 <section class="content" id="problem">
   <p class="section-label">Background</p>
   <p>If science is fundamentally about experimentation, about discovering better, more effective ways of doing things, then it follows that we should also be willing to <a href="https://www.asimov.press/p/research-forms">experiment with how research itself is conducted</a>. Rethinking the structures, incentives, <a href="https://substack.com/inbox/post/180670145">publication systems</a>, and <a href="https://renaissancephilanthropy.substack.com/p/philanthropy-20-what-the-evolution">funding models</a> that underpin research institutions could unlock entirely new modes of thinking, innovation, and discovery. This line of inquiry is at the heart of the growing field of metascience.</p>
+
   <br><h2>Academia and industry are both essential — and both incomplete</h2>
   <p>The world's research enterprise has long been anchored by two dominant institutions. Universities produce the majority of basic science: curiosity-driven, peer-reviewed, and publicly funded. Industry — from large corporate R&amp;D to VC-backed startups — drives applied research and translates discoveries into products. Both have produced extraordinary results. Both are also structurally limited in ways that create significant blind spots.</p>
+
   <div class="two-col">
     <div class="col-card">
       <p class="card-label">Academia</p>
@@ -161,7 +117,6 @@
       <text x="92" y="374" text-anchor="end" font-size="10" fill="#6b6860">Short-term</text>
       <text x="92" y="32" text-anchor="end" font-size="10" fill="#6b6860">Long-term</text>
       <text x="14" y="200" text-anchor="middle" font-size="8.5" fill="#6b6860" letter-spacing="0.07em" font-weight="500" transform="rotate(-90 14 200)">TIME HORIZON</text>
-      <!-- Dots -->
       <circle cx="157" cy="195" r="7.5" fill="#5b8db8"/>
       <text x="170" y="192" font-size="10.5" fill="#1a1a18">Academia</text>
       <text x="170" y="205" font-size="8.5" fill="#6b6860">Decentralised PI model</text>
@@ -198,7 +153,7 @@
   <p class="section-label">The landscape</p>
   <h2>Seven alternative structures</h2>
   <p>The following structures represent distinct approaches to organising, funding, and governing research outside of conventional academia and industry. They differ along a key dimension: the degree of coordination they enable — from loosely federated institutes to tightly integrated mission-driven teams executing toward a single defined goal.</p>
-  <p style="font-size:.85rem;color:var(--muted);margin-bottom:0">For a comprehensive breakdown and comparison, see <a href="structures.html">Structures</a></p>
+  <p style="font-size:.85rem;color:var(--muted);margin-bottom:0">For a comprehensive breakdown and comparison, see <a href="/structures.html">Structures</a></p>
 
   <div class="types-grid">
     <div class="type-row">
@@ -232,14 +187,7 @@
   </div>
 
   <div class="cta-row">
-    <a class="btn btn-primary" href="structures.html">Compare all Structures &#x2192;</a>
-    <a class="btn" href="institutions.html">Browse the list of Institutes</a>
+    <a class="btn btn-primary" href="/structures.html">Compare all Structures &#x2192;</a>
+    <a class="btn" href="/institutions.html">Browse the list of Institutes</a>
   </div>
 </section>
-
-<footer>
-  <p class="footer-note"><strong>Structures for Research</strong> is a public reference cataloguing organisational structures for research institutions outside traditional academia and industry. <a href="feedback.html">Feedback</a> encouraged.</p>
-  <p class="footer-sig">structuresforresearch.com</p>
-</footer>
-</body>
-</html>
