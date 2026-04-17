@@ -1,66 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Directory — Structures for Research</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-  <style>
-    :root{--ink:#1a1a18;--paper:#f7f5f0;--muted:#6b6860;--accent:#c8401a;--rule:#d9d5cc;--serif:'Libre Baskerville',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
-    nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px}
-    .nav-logo{font-family:var(--serif);font-size:.95rem;color:var(--ink);text-decoration:none}
-    .nav-links{display:flex;gap:2rem;list-style:none}
-    .nav-links a{font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
-    .nav-links a:hover,.nav-links a.active{color:var(--ink)}
-    .page-header{max-width:900px;margin:0 auto;padding:3.5rem 2rem 2.5rem;border-bottom:1px solid var(--rule)}
-    .eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
-    .page-header h1{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
-    .page-header p{font-size:.95rem;color:var(--muted);max-width:560px;line-height:1.75}
-    .filter-row{max-width:900px;margin:0 auto;padding:1.25rem 2rem;border-bottom:1px solid var(--rule);display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
-    .filter-label{font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:.25rem}
-    .filter-btn{font-size:.75rem;padding:.3rem .8rem;border:1px solid var(--rule);background:transparent;color:var(--muted);cursor:pointer;border-radius:2px;transition:all .15s;font-family:var(--sans)}
-    .filter-btn:hover,.filter-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-    main{max-width:900px;margin:0 auto;padding:0 2rem 5rem}
-    .category{margin-top:3.5rem}
-    .category:first-child{margin-top:2.5rem}
-    .cat-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--rule)}
-    .cat-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:4px}
-    .cat-name{font-family:var(--serif);font-size:1.15rem;font-weight:700}
-    .cat-count{font-size:.78rem;color:var(--muted)}
-    .cat-desc{font-size:.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7;max-width:640px}
-    .inst-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
-    .inst-card{background:var(--paper);padding:1.1rem 1.25rem}
-    .inst-card:hover{background:#fff}
-    .inst-name{font-family:var(--serif);font-size:.95rem;font-weight:700;margin-bottom:.25rem}
-    .inst-country{font-size:.75rem;color:var(--muted);font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.4rem}
-    .inst-note{font-size:.8rem;color:var(--muted);line-height:1.6}
-    .inst-status{display:inline-block;font-size:.68rem;font-weight:500;padding:.1rem .45rem;border-radius:2px;margin-bottom:.4rem;letter-spacing:.04em}
-    .status-active{background:#dff0d8;color:#2a6e1a}
-    .status-historical{background:#f0e8d8;color:#7a4800}
-    .status-emerging{background:#e8e4f8;color:#3a2a80}
-    footer{border-top:1px solid var(--rule);max-width:900px;margin:0 auto;padding:2.5rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
-    .footer-note{font-size:.78rem;color:var(--muted)}
-    .footer-note a{color:var(--muted)}
-    .footer-sig{font-family:var(--serif);font-size:.82rem;color:var(--muted);font-style:italic}
-    @media(max-width:620px){.nav-links{display:none}.page-header,.filter-row,main{padding-left:1.25rem;padding-right:1.25rem}}
-  </style>
-</head>
-<body>
-<nav>
-  <a class="nav-logo" href="index.html">Structures for Research</a>
-    <ul class="nav-links">
-    <li><a href="index.html">Overview</a></li>
-    <li><a href="structures.html">Structures</a></li>
-    <li><a href="institutions.html" class="active">Institutions</a></li>
-    <li><a href="feedback.html">Feedback</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
-</nav>
+---
+layout: default
+title: A Field Guide
+description: A public reference to alternative structures for research institutions outside traditional academia and industry.
+---
+
+<section class="hero">
+  <p class="eyebrow">A public reference</p>
+  <h1>Alternative Structures for Research Institutions</h1>
+  <p class="hero-lead">
+    When most people think about where research happens, they think of <strong>academia</strong> or <strong>industry</strong>. But a growing ecosystem of alternative structures is filling the gaps neither can reach. This site maps them.
+  </p>
+</section>
 
 <div class="page-header">
   <p class="eyebrow">Directory</p>
@@ -470,10 +420,7 @@
 
 </main>
 
-<footer>
-  <p class="footer-note"><a href="index.html">&#x2190; Back to overview</a> &nbsp;&middot;&nbsp; <a href="structures.html">Compare structures</a> &nbsp;&middot;&nbsp; Missing an institution? Submit your <a href="feedback.html">feedback</a></p>
-  <p class="footer-sig">structuresforresearch.com</p>
-</footer>
+
 
 <script>
 function filterCats(cat) {
