@@ -13,7 +13,6 @@ description: Every research structure evaluated side by side across the same cri
   .table-outer { overflow-x: auto; border-top: 1px solid var(--rule); }
   table { border-collapse: collapse; min-width: 1400px; width: 100%; font-size: .82rem; }
 
-  /* 1. Sticky header row — sticks below the 56px nav */
   thead th { position: sticky; top: 56px; z-index: 100; background: var(--paper); border-bottom: 2px solid var(--ink); padding: .9rem 1rem; text-align: left; font-family: var(--serif); font-size: .82rem; font-weight: 700; white-space: nowrap; vertical-align: bottom; }
   /* Top-left corner cell: sticky on both axes */
   thead th:first-child { position: sticky; top: 56px; left: 0; z-index: 150; background: var(--paper); min-width: 170px; border-right: 1px solid var(--rule); }
@@ -28,11 +27,11 @@ description: Every research structure evaluated side by side across the same cri
   tbody td { padding: .85rem 1rem; vertical-align: top; line-height: 1.6; color: #2d2d2a; min-width: 155px; max-width: 220px; }
 
   /* 3. Academia (col 2) and Industry (col 3) shaded slightly darker as baseline/traditional structures */
-  thead th:nth-child(2) { background: #ede9e1; }
+  thead th:nth-child(2) { background: #ede9e1; border-right: 2px solid var(--ink); }
   thead th:nth-child(3) { background: #ede9e1; }
-  tbody tr td:nth-child(2) { background: #ede9e1; }
+  tbody tr td:nth-child(2) { background: #ede9e1; border-right: 2px solid var(--ink); }
   tbody tr td:nth-child(3) { background: #ede9e1; }
-  tbody tr:nth-child(even) td:nth-child(2) { background: #e5e0d8; }
+  tbody tr:nth-child(even) td:nth-child(2) { background: #e5e0d8; border-right: 2px solid var(--ink); }
   tbody tr:nth-child(even) td:nth-child(3) { background: #e5e0d8; }
 
   .badge { display: inline-block; font-size: .72rem; font-weight: 500; padding: .15rem .5rem; border-radius: 2px; letter-spacing: .03em; }
