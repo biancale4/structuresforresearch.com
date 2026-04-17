@@ -16,18 +16,40 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+    /* Nav */
     nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px}
     .nav-logo{font-family:var(--serif);font-size:.95rem;color:var(--ink);text-decoration:none}
     .nav-links{display:flex;gap:2rem;list-style:none}
     .nav-links a{font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
     .nav-links a:hover,.nav-links a.active{color:var(--ink)}
-    /* ... rest of your shared CSS ... */
+
+    /* Shared page elements */
+    .eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem}
+    .hero{max-width:760px;margin:0 auto;padding:5rem 2rem 4rem;border-bottom:1px solid var(--rule)}
+    .hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:1.5rem}
+    .hero-lead{font-size:1.05rem;color:var(--muted);max-width:600px;font-weight:300;line-height:1.8}
+    .hero-lead strong{color:var(--ink);font-weight:500}
+    .page-header{max-width:760px;margin:0 auto;padding:3.5rem 2rem 2.5rem;border-bottom:1px solid var(--rule)}
+    .page-header h1{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
+    .page-header p{font-size:.95rem;color:var(--muted);max-width:560px;line-height:1.75}
+    .content{max-width:760px;margin:0 auto;padding:4rem 2rem;border-bottom:1px solid var(--rule)}
+    .section-label{font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem}
+    h2{font-family:var(--serif);font-size:clamp(1.4rem,3vw,1.75rem);font-weight:700;line-height:1.25;margin-bottom:1.25rem}
+    p{margin-bottom:1.1rem;font-size:.97rem;line-height:1.8;color:#2d2d2a}
+    p:last-child{margin-bottom:0}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Footer */
     footer{border-top:1px solid var(--rule);max-width:760px;margin:0 auto;padding:2.5rem 2rem;display:flex;justify-content:space-between;align-items:start;gap:2rem;flex-wrap:wrap}
     .footer-note{font-size:.8rem;color:var(--muted);max-width:420px;line-height:1.6}
     .footer-note a{color:var(--muted)}
     .footer-sig{font-family:var(--serif);font-size:.82rem;color:var(--muted);font-style:italic}
+
     @media(max-width:620px){
       .nav-links{display:none}
+      .hero,.content,.page-header{padding-left:1.25rem;padding-right:1.25rem}
       footer{flex-direction:column}
     }
   </style>
@@ -43,7 +65,6 @@
     <li><a href="/feedback.html" {% if page.url contains 'feedback' %}class="active"{% endif %}>Feedback</a></li>
     <li><a href="/about.html" {% if page.url contains 'about' %}class="active"{% endif %}>About</a></li>
     <li><a href="/resources.html" {% if page.url contains 'resources' %}class="active"{% endif %}>Resources</a></li>
-
   </ul>
 </nav>
 
