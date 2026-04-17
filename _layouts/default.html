@@ -60,6 +60,7 @@
   <a class="nav-logo" href="/">Structures for Research</a>
   <ul class="nav-links">
     <li><a href="/" {% if page.url == '/' %}class="active"{% endif %}>Overview</a></li>
+    <li><a href="/overview.html" {% if page.url contains 'about' %}class="active"{% endif %}>Overview</a></li>
     <li><a href="/structures.html" {% if page.url contains 'structures' %}class="active"{% endif %}>Structures</a></li>
     <li><a href="/institutions.html" {% if page.url contains 'institutions' %}class="active"{% endif %}>Institutions</a></li>
     <li><a href="/feedback.html" {% if page.url contains 'feedback' %}class="active"{% endif %}>Feedback</a></li>
