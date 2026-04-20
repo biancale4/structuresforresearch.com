@@ -1,19 +1,22 @@
 ---
 layout: default
-title: A Field Guide
-description: A public reference to alternative structures for research institutions outside traditional academia and industry.
+title: Overview
+description: How alternative research structures fill the gaps left by academia and industry.
 ---
+
+<section class="hero">
+  <p class="eyebrow">A public reference</p>
+  <h1>Alternative Structures for Research Institutions</h1>
+  <p class="hero-lead">
+    When most people think about where research happens, they think of <strong>academia</strong> or <strong>industry</strong>. But a growing ecosystem of alternative structures is filling the gaps neither can reach. This site maps them.
+  </p>
+</section>
+
 <style>
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
-  .col-card{background:#fff;border:1px solid var(--rule);padding:1.75rem}
-  .col-card h3{font-family:var(--serif);font-size:.97rem;margin-bottom:.5rem}
-  .col-card h3+ul{margin-top:.35rem}
-  .col-card h3:not(:first-of-type){margin-top:1.25rem}
-  .col-card ul{padding-left:1.2rem;font-size:.86rem;color:var(--muted)}
-  .col-card ul li{margin-bottom:.3rem;line-height:1.6}
-  .card-label{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
-  .chart-wrap{margin:2.5rem 0 .5rem;overflow-x:auto}
-  .chart-note{font-size:.8rem;color:var(--muted);font-style:italic}
+  .hero{max-width:760px;margin:0 auto;padding:5rem 2rem 4rem;border-bottom:1px solid var(--rule)}
+  .hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:1.5rem}
+  .hero-lead{font-size:1.05rem;color:var(--muted);max-width:600px;font-weight:300;line-height:1.8}
+  .hero-lead strong{color:var(--ink);font-weight:500}
   .types-grid{margin-top:2rem;border:1px solid var(--rule);display:grid;gap:1px;background:var(--rule)}
   .type-row{background:var(--paper);display:grid;grid-template-columns:210px 1fr}
   .type-name{padding:1.25rem 1.5rem;border-right:1px solid var(--rule)}
@@ -26,65 +29,63 @@ description: A public reference to alternative structures for research instituti
   .btn:hover{background:var(--ink);color:var(--paper)}
   .btn-primary{background:var(--ink);color:var(--paper)}
   .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+  .chart-wrap{margin:2.5rem 0 .5rem;overflow-x:auto}
+  .chart-note{font-size:.8rem;color:var(--muted);font-style:italic}
+  .two-up{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1.5rem}
+  .two-up-item{background:var(--paper);padding:1.25rem 1.4rem}
+  .two-up-item strong{font-family:var(--serif);font-size:.92rem;display:block;margin-bottom:.3rem}
+  .two-up-item p{font-size:.86rem;color:var(--muted);margin-bottom:0;line-height:1.65}
   @media(max-width:620px){
-    .two-col{grid-template-columns:1fr}
     .type-row{grid-template-columns:1fr}
     .type-name{border-right:none;border-bottom:1px solid var(--rule)}
+    .two-up{grid-template-columns:1fr}
   }
 </style>
-<section class="hero">
-  <p class="eyebrow">A public reference</p>
-  <h1>Alternative Structures for Research Institutions</h1>
-  <p class="hero-lead">
-    When most people think about where research happens, they think of <strong>academia</strong> or <strong>industry</strong>. But a growing ecosystem of alternative structures is filling the gaps neither can reach. This site maps them.
-  </p>
+
+<section class="content" id="background">
+  <p class="section-label">Background</p>
+  <p>If science is fundamentally about experimentation, then it follows that we should also be willing to <a href="https://www.asimov.press/p/research-forms">experiment with how research itself is conducted</a>. Rethinking the structures, incentives, and funding models that underpin research institutions could unlock entirely new modes of discovery. This is at the heart of the growing field of metascience.</p>
+
+  <h2>Academia and industry are both essential — and both incomplete</h2>
+  <p>Universities produce most basic science: curiosity-driven, peer-reviewed, publicly funded. Industry translates discoveries into products. Together they have delivered extraordinary advances. But both are structurally limited in ways that create significant blind spots — and many of the most pressing challenges ahead require exactly the kind of work neither is designed to do.</p>
+  <p>The result is predictable: incremental progress over step-change advances, and research siloed both within disciplines and across the discovery–application divide.</p>
 </section>
 
-<section class="content" id="problem">
-  <p class="section-label">Background</p>
-  <p>If science is fundamentally about experimentation, about discovering better, more effective ways of doing things, then it follows that we should also be willing to <a href="https://www.asimov.press/p/research-forms">experiment with how research itself is conducted</a>. Rethinking the structures, incentives, <a href="https://substack.com/inbox/post/180670145">publication systems</a>, and <a href="https://renaissancephilanthropy.substack.com/p/philanthropy-20-what-the-evolution">funding models</a> that underpin research institutions could unlock entirely new modes of thinking, innovation, and discovery. This line of inquiry is at the heart of the growing field of metascience.</p>
-
-  <br><h2>Academia and industry are both essential — and both incomplete</h2>
-  <p>The world's research enterprise has long been anchored by two dominant institutions. Universities produce the majority of basic science: curiosity-driven, peer-reviewed, and publicly funded. Industry — from large corporate R&amp;D to VC-backed startups — drives applied research and translates discoveries into products. Both have produced extraordinary results. Both are also structurally limited in ways that create significant blind spots.</p>
-
-  <div class="two-col">
-    <div class="col-card">
-      <p class="card-label">Academia</p>
-      <h3>Strengths</h3>
-      <ul>
-        <li>Long tradition of basic, curiosity-driven research</li>
-        <li>Strong talent pipeline and training</li>
-        <li>Freedom from commercial pressure</li>
-        <li>Wide collaborative networks across disciplines</li>
-        <li>Oriented toward public goods and open knowledge</li>
-      </ul>
-      <h3>Structural weaknesses</h3>
-      <ul>
-        <li>Fragmentation — PI autonomy limits coordination</li>
-        <li>Short grant cycles (2–5 years) misaligned with long problems</li>
-        <li>Publication incentives crowd out tool and infrastructure building</li>
-        <li>Career incentives discourage high-risk, long-horizon bets</li>
-        <li>Poorly suited to engineering-heavy, execution-focused work</li>
-      </ul>
+<section class="content" id="causes">
+  <p class="section-label">Why this happens</p>
+  <h2>Four structural problems</h2>
+  <div class="two-up">
+    <div class="two-up-item">
+      <strong>Short-term funding cycles</strong>
+      <p>Academia runs on ~3 year grants. Industry on quarterly targets and fundraising timelines. Long bets are structurally difficult to sustain in either system.</p>
     </div>
-    <div class="col-card">
-      <p class="card-label">Industry &amp; Startups</p>
-      <h3>Strengths</h3>
-      <ul>
-        <li>Fast-moving, cross-functional execution</li>
-        <li>Strong engineering and product talent</li>
-        <li>Commercially viable research gets resourced quickly</li>
-        <li>Clear accountability and milestone culture</li>
-        <li>Access to proprietary data and infrastructure</li>
-      </ul>
-      <h3>Structural weaknesses</h3>
-      <ul>
-        <li>Short-termism — months to 3-year runway constraints</li>
-        <li>Commercialisation bias: non-profitable research starved</li>
-        <li>Speculative or basic science rarely funded</li>
-        <li>Outputs are IP, not public goods</li>
-        <li>Market logic incompatible with public-good research</li>
-      </ul>
+    <div class="two-up-item">
+      <strong>Misaligned incentives</strong>
+      <p>Academia rewards publications and grant renewal. Industry rewards commercialisation. Both systems reward predictability over ambition.</p>
+    </div>
+    <div class="two-up-item">
+      <strong>Fragmented expertise</strong>
+      <p>Basic scientists, engineers, and product builders operate in largely separate worlds, with few mechanisms for deep, sustained collaboration.</p>
+    </div>
+    <div class="two-up-item">
+      <strong>Intolerance for failure</strong>
+      <p>Funding and career structures penalise negative results, discouraging the risk-taking required for breakthrough discovery. Committee-mediated grants rarely fund unsexy outlier work.</p>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="vision">
+  <p class="section-label">The vision</p>
+  <h2>Better institutions, not different people</h2>
+  <p>The goal is not to replace academia or industry, but to build complementary structures that can pursue what neither can: ambitious, coordinated, long-horizon work oriented toward public goods. These institutions would be defined by stable long-term funding, explicit tolerance for failure, and success metrics beyond publications or profit. Success would look like:</p>
+  <div class="two-up">
+    <div class="two-up-item">
+      <strong>Radical breakthroughs</strong>
+      <p>Field-shaping discoveries that change what is possible — not incremental progress on established problems.</p>
+    </div>
+    <div class="two-up-item">
+      <strong>Essential technologies</strong>
+      <p>Research-enabling tools, datasets, and platforms that accelerate entire fields — the infrastructure science needs but markets won't fund.</p>
     </div>
   </div>
 </section>
@@ -92,8 +93,7 @@ description: A public reference to alternative structures for research instituti
 <section class="content" id="gap">
   <p class="section-label">The gap</p>
   <h2>What falls through</h2>
-  <p>Plotting research institutions on two axes — basic vs. applied research, and short vs. long time horizons — reveals a structural gap. Academia occupies the upper-left: basic, relatively long-term. Industry occupies the lower-right: applied, short-term. The upper-middle and upper-right — applied-but-not-commercial, long-horizon, requiring coordination — are chronically underserved.</p>
-  <p>This is where frontier research lives: building tools and datasets that accelerate entire fields, tackling engineering problems too large for a single lab and too public-good-oriented for a startup, and pursuing high-risk bets that require years of coordinated effort.</p>
+  <p>The system struggles most with work that is too applied for academia, too early or non-commercial for industry, and too complex and coordinated for either to tackle alone. If left unaddressed, these gaps don't just slow progress — they define its ceiling.</p>
 
   <div class="chart-wrap">
     <svg viewBox="0 0 660 415" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, system-ui, sans-serif">
@@ -118,9 +118,9 @@ description: A public reference to alternative structures for research instituti
       <circle cx="157" cy="195" r="7.5" fill="#5b8db8"/>
       <text x="170" y="192" font-size="10.5" fill="#1a1a18">Academia</text>
       <text x="170" y="205" font-size="8.5" fill="#6b6860">Decentralised PI model</text>
-      <circle cx="536" cy="332" r="7.5" fill="#e07b39"/>
-      <text x="524" y="320" font-size="10.5" fill="#1a1a18" text-anchor="end">Industry / Startups</text>
-      <text x="524" y="332" font-size="8.5" fill="#6b6860" text-anchor="end">Corporate R&amp;D</text>
+      <circle cx="536" cy="195" r="7.5" fill="#e07b39"/>
+      <text x="524" y="192" font-size="10.5" fill="#1a1a18" text-anchor="end">Industry / Startups</text>
+      <text x="524" y="205" font-size="8.5" fill="#6b6860" text-anchor="end">Corporate R&amp;D</text>
       <circle cx="316" cy="92" r="6.5" fill="#6b8e6b"/>
       <text x="328" y="89" font-size="10" fill="#1a1a18">Industrial Labs</text>
       <text x="328" y="101" font-size="8.5" fill="#6b6860">Bell Labs, Xerox PARC</text>
@@ -128,11 +128,8 @@ description: A public reference to alternative structures for research instituti
       <text x="454" y="69" font-size="10" fill="#1a1a18">Govt / Mission Labs</text>
       <text x="454" y="81" font-size="8.5" fill="#6b6860">CSIRO, DOE National Labs</text>
       <circle cx="207" cy="150" r="6.5" fill="#4a9b8a"/>
-      <text x="219" y="147" font-size="10" fill="#1a1a18">Nonprofit Research Institutes</text>
-      <text x="219" y="159" font-size="8.5" fill="#6b6860">Max Planck, Broad Institute</text>
-      <circle cx="265" cy="118" r="6.5" fill="#c8401a"/>
-      <text x="277" y="115" font-size="10" fill="#1a1a18">Next-Gen Institutes</text>
-      <text x="277" y="127" font-size="8.5" fill="#6b6860">Arc Institute, CZI Biohub</text>
+      <text x="219" y="147" font-size="10" fill="#1a1a18">Core-funded Nonprofit Institutes</text>
+      <text x="219" y="159" font-size="8.5" fill="#6b6860">Arc Institute, Crick Institute</text>
       <circle cx="398" cy="165" r="6.5" fill="#2d7d9a"/>
       <text x="386" y="180" font-size="10" fill="#1a1a18" text-anchor="end">FROs</text>
       <text x="386" y="192" font-size="8.5" fill="#6b6860" text-anchor="end">Convergent Research</text>
@@ -149,38 +146,33 @@ description: A public reference to alternative structures for research instituti
 
 <section class="content" id="types">
   <p class="section-label">The landscape</p>
-  <h2>Seven alternative structures</h2>
-  <p>The following structures represent distinct approaches to organising, funding, and governing research outside of conventional academia and industry. They differ along a key dimension: the degree of coordination they enable — from loosely federated institutes to tightly integrated mission-driven teams executing toward a single defined goal.</p>
-  <p style="font-size:.85rem;color:var(--muted);margin-bottom:0">For a comprehensive breakdown and comparison, see <a href="/structures.html">Structures</a></p>
+  <h2>Six alternative structures</h2>
+  <p>The following structures represent distinct approaches to organising, funding, and governing research outside of conventional academia and industry. For a comprehensive breakdown and comparison, see <a href="/structures.html">Structures</a>.</p>
 
   <div class="types-grid">
     <div class="type-row">
       <div class="type-name"><strong>Industrial Labs</strong><span>Corporate-funded, research-first</span></div>
-      <div class="type-desc">Corporate-funded research labs with significant autonomy from business units. Historically among the most productive research environments ever created — Bell Labs alone produced the transistor, Unix, C, and information theory. The model is rare today, eroded by corporate short-termism, but remains a critical archetype for what sustained, well-resourced research freedom can produce. <em>Examples: Bell Labs, Xerox PARC, DuPont Experimental Station, GE Research, IBM Research, Ink and Switch.</em></div>
+      <div class="type-desc">Corporate-funded research labs with significant autonomy from business units. Historically among the most productive research environments ever created — Bell Labs alone produced the transistor, Unix, C, and information theory. The model is rare today, eroded by corporate short-termism, but remains a critical archetype. <em>Examples: Bell Labs, Xerox PARC, DuPont Experimental Station, GE Research, IBM Research, Ink and Switch.</em></div>
     </div>
     <div class="type-row">
       <div class="type-name"><strong>Government &amp; Mission-Oriented Labs</strong><span>Publicly funded, national mandate</span></div>
-      <div class="type-desc">Publicly funded institutions with long-term mandates tied to national missions — defence, energy, health, agriculture. Medium-to-high coordination, decades-long time horizons, strategic applied research. Own and operate shared infrastructure (accelerators, supercomputers, containment facilities) that no individual institution could sustain. <em>Examples: CSIRO, Battelle Memorial Institute, US DOE National Labs, Fraunhofer Society (Germany), RIKEN (Japan).</em></div>
+      <div class="type-desc">Publicly funded institutions with long-term mandates tied to national missions — defence, energy, health, agriculture. Own and operate shared infrastructure (accelerators, supercomputers, containment facilities) that no individual institution could sustain. <em>Examples: CSIRO, Battelle Memorial Institute, US DOE National Labs, Fraunhofer Society (Germany), RIKEN (Japan).</em></div>
     </div>
     <div class="type-row">
-      <div class="type-name"><strong>Nonprofit Research Institutes</strong><span>Mission-driven, grant-funded</span></div>
-      <div class="type-desc">Independent institutes housing multiple PI-led labs. Operate like highly coordinated, very large university research departments — without the teaching mandate. Strong within-domain scientific culture. Philanthropy can enable risk, but funding is often still conservative and PI silos remain. <em>Examples: Max Planck Society, Scripps Research, Francis Crick Institute, Howard Hughes Medical Institute, Broad Institute.</em></div>
-    </div>
-    <div class="type-row">
-      <div class="type-name"><strong>Next-Gen Institutes</strong><span>Philanthropic, redesigned incentives</span></div>
-      <div class="type-desc">A newer generation of institutes that intentionally redesign incentives, funding structures, and shared infrastructure while retaining PI-like autonomy. Funded at ~8-year horizons, with strong shared platforms enabling more coordination than traditional institutes — but not yet fully integrated teams. Built on the premise that excellent scientists need better conditions, not different people. <em>Examples: Arc Institute, CZI Biohub.</em></div>
+      <div class="type-name"><strong>Core-funded Nonprofit Institutes</strong><span>Philanthropic, redesigned incentives</span></div>
+      <div class="type-desc">Institutes that intentionally redesign incentives, funding structures, and shared infrastructure while retaining PI-like autonomy. Funded at ~8-year horizons, with strong shared platforms enabling more coordination than traditional institutes. Built on the premise that excellent scientists need better conditions, not different people. <em>Examples: Arc Institute, CZI Biohub, Francis Crick Institute, Howard Hughes Medical Institute.</em></div>
     </div>
     <div class="type-row">
       <div class="type-name"><strong>Focused Research Organisations</strong><span>Mission-driven, time-bound, in-house</span></div>
-      <div class="type-desc">Standalone organisations built to execute a specific technical goal with a unified team. CEO-led, full-time cross-functional staff, milestone-driven — pursuing public goods rather than products. Time-bound (~3-7 years): once the mission is complete, the FRO shuts down. FRO-shaped problems need a clear goal from day one, tight coupling between workstreams, and strong conviction about the right approach. <em>Examples: E11 Bio, Cultivarium, Parallel Squared Technology Institute (all via Convergent Research).</em></div>
+      <div class="type-desc">Standalone organisations built to execute a specific technical goal with a unified team. CEO-led, full-time cross-functional staff, milestone-driven — pursuing public goods rather than products. Time-bound (~3–7 years): once the mission is complete, the FRO shuts down. <em>Examples: E11 Bio, Cultivarium, Parallel Squared Technology Institute (all via Convergent Research).</em></div>
     </div>
     <div class="type-row">
       <div class="type-name"><strong>BBNs / Frontier Research Contracts</strong><span>Contract-based, distributed elite teams</span></div>
-      <div class="type-desc">Contract-based networks assembling elite teams across institutions to tackle defined frontier problems. Named after the original Bolt Beranek and Newman lab, which used government contracts to build foundational internet infrastructure while pursuing bolder agendas on the margins. More financially precarious than FROs but more flexible. Ideal for engineering-heavy work too complex for academia and too public-good-oriented for industry. <em>Examples: BBN Technologies, SRI International, MITRE Corporation.</em></div>
+      <div class="type-desc">Contract-based networks assembling elite teams across institutions to tackle defined frontier problems. More financially precarious than FROs but more flexible. Ideal for engineering-heavy work too complex for academia and too public-good-oriented for industry. <em>Examples: BBN Technologies, SRI International, MITRE Corporation.</em></div>
     </div>
     <div class="type-row">
       <div class="type-name"><strong>ARPA-style Organisations</strong><span>High-risk, programme-managed, external</span></div>
-      <div class="type-desc">Agencies that fund and coordinate external research teams toward ambitious goals. Defined by empowered programme managers, milestone-driven portfolio management, and explicit tolerance for failure. Suited to problems where the right approach is unknown — ARPA programs run parallel tracks to test multiple approaches simultaneously, pruning and recombining without organisational disruption. Programmes typically run 3–5 years. <em>Examples: DARPA, ARPA-E, ARPA-H, ARIA (UK), SPRIND (Germany), Speculative Technologies, Actuate, Wellcome Leap.</em></div>
+      <div class="type-desc">Agencies that fund and coordinate external research teams toward ambitious goals via empowered programme managers and explicit tolerance for failure. Suited to problems where the right approach is unknown — ARPA programs run parallel tracks to test multiple approaches simultaneously. <em>Examples: DARPA, ARPA-E, ARPA-H, ARIA (UK), SPRIND (Germany), Speculative Technologies, Actuate, Wellcome Leap.</em></div>
     </div>
   </div>
 
