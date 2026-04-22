@@ -24,13 +24,12 @@ description: How alternative research structures fill the gaps left by academia 
   .two-up-item strong{font-family:var(--serif);font-size:.92rem;display:block;margin-bottom:.3rem}
   .two-up-item p{font-size:.86rem;color:var(--muted);margin-bottom:0;line-height:1.65}
 
-  /* Vision 'aha' cards */
-  .vision-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.75rem}
-  .vision-card{background:var(--ink);color:var(--paper);padding:2rem 1.75rem;position:relative;overflow:hidden}
-  .vision-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
-  .vision-card-label{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1rem}
-  .vision-card h3{font-family:var(--serif);font-size:1.3rem;font-weight:700;line-height:1.2;margin-bottom:.75rem;color:var(--paper)}
-  .vision-card p{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:0}
+  /* Vision 'aha' cards — redesigned */
+  .vision-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+  .vision-card{background:#fff;border:1px solid var(--rule);border-top:4px solid var(--accent);padding:2.5rem 2rem;display:flex;flex-direction:column;gap:1rem}
+  .vision-card-num{font-family:var(--serif);font-size:3rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.25rem;opacity:.35}
+  .vision-card h3{font-family:var(--serif);font-size:1.6rem;font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:.5rem}
+  .vision-card p{font-size:.95rem;color:var(--muted);line-height:1.8;margin-bottom:0}
 
   /* Chart */
   .chart-wrap{margin:2.5rem 0 .5rem;overflow-x:auto}
@@ -80,7 +79,7 @@ description: How alternative research structures fill the gaps left by academia 
   <p class="section-label">The Gap</p>
   <h2>Traditional structures can't do it all</h2>
   <p>Academic systems tend to reward publication volume and citation impact. Industrial systems tend to prioritize productization and revenue. Both can produce innovation, but both systematically filter out work that is uncertain, long-horizon, or non-incremental.</p>
-    <p>This gap doesn't just slow progress — it defines the ceiling for research.</p>
+  <p>This gap doesn't just slow progress — it defines the ceiling for research.</p>
   <div style="overflow-x:auto;margin-top:1.5rem">
   <table style="border-collapse:collapse;width:100%;font-size:.84rem;font-family:var(--sans)">
     <thead>
@@ -125,15 +124,17 @@ description: How alternative research structures fill the gaps left by academia 
 
 <section class="content" id="vision">
   <p class="section-label">The Vision</p>
-  <h2>We can design research institutions to do what others can’t</h2>
+  <h2>We can design research institutions to do what others can't</h2>
   <p>The goal is not to replace academia or industry, but to build complementary structures that can pursue what neither can: ambitious, coordinated, long-horizon work oriented toward public goods. These institutions would be defined by stable long-term funding, explicit tolerance for failure, and success metrics beyond publications or profit.</p>
   <p>Success would look like:</p>
   <div class="vision-cards">
     <div class="vision-card">
+      <div class="vision-card-num">01</div>
       <h3>Big-if-true Discoveries</h3>
       <p>Field-shaping breakthroughs that change what is possible — not incremental progress on established problems.</p>
     </div>
     <div class="vision-card">
+      <div class="vision-card-num">02</div>
       <h3>Game-changing Technologies</h3>
       <p>Research-enabling tools, datasets, and platforms that accelerate entire fields — the infrastructure science needs but markets won't fund.</p>
     </div>
@@ -146,7 +147,7 @@ description: How alternative research structures fill the gaps left by academia 
   <p>Some institutions have already begun to redesign these constraints.</p>
   <p>Core-funded research institutes such as the Howard Hughes Medical Institute (HHMI) shift funding from project-based grants to long-term investigator support. This allows researchers to think more creatively and pursue higher-risk, less immediately publishable work, compared to NIH-funded scientists.</p>
   <p>Initiatives like DARPA-style program funding or Bell Labs–inspired industrial research environments demonstrate that when incentives change, the shape of discovery changes with them.</p>
-  <p>Another example is the Human Genome Project, which succeeded through large-scale international coordination and sustained funding rather than competitive grant cycles or private market incentives. Its structure enabled a level of standardization, scale, and shared infrastructure that individual labs operating under traditional incentive systems could not have achieved.</p> 
+  <p>Another example is the Human Genome Project, which succeeded through large-scale international coordination and sustained funding rather than competitive grant cycles or private market incentives. Its structure enabled a level of standardization, scale, and shared infrastructure that individual labs operating under traditional incentive systems could not have achieved.</p>
   <p>What these models share is not a discipline, but a design choice: they reduce short-term pressure in favor of long-term epistemic progress.</p>
   <br>
   <h2>An ecosystem of structures, each suited to different needs</h2>
@@ -200,8 +201,6 @@ description: How alternative research structures fill the gaps left by academia 
   </div>
   <p class="chart-note">Positions are approximate and reflect typical operating mode. Industrial Labs are shown as a historical reference — the model is rare today.</p>
 </section>
-
-
 
 <section class="content" id="types">
   <p class="section-label">The Landscape</p>
