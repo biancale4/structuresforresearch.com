@@ -17,27 +17,52 @@ description: How alternative research structures fill the gaps left by academia 
   .hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:1.5rem}
   .hero-lead{font-size:1.05rem;color:var(--muted);max-width:600px;font-weight:300;line-height:1.8}
   .hero-lead strong{color:var(--ink);font-weight:500}
-  .types-grid{margin-top:2rem;border:1px solid var(--rule);display:grid;gap:1px;background:var(--rule)}
-  .type-row{background:var(--paper);display:grid;grid-template-columns:210px 1fr}
-  .type-name{padding:1.25rem 1.5rem;border-right:1px solid var(--rule)}
-  .type-name strong{font-family:var(--serif);font-size:.95rem;display:block;margin-bottom:.2rem}
-  .type-name span{font-size:.78rem;color:var(--muted);font-style:italic}
-  .type-desc{padding:1.25rem 1.5rem;font-size:.88rem;color:#2d2d2a;line-height:1.75}
-  .type-desc em{color:var(--muted);font-style:normal}
+
+  /* Four structural problems grid */
+  .two-up{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1.5rem}
+  .two-up-item{background:var(--paper);padding:1.25rem 1.4rem}
+  .two-up-item strong{font-family:var(--serif);font-size:.92rem;display:block;margin-bottom:.3rem}
+  .two-up-item p{font-size:.86rem;color:var(--muted);margin-bottom:0;line-height:1.65}
+
+  /* Vision 'aha' cards */
+  .vision-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.75rem}
+  .vision-card{background:var(--ink);color:var(--paper);padding:2rem 1.75rem;position:relative;overflow:hidden}
+  .vision-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+  .vision-card-label{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1rem}
+  .vision-card h3{font-family:var(--serif);font-size:1.3rem;font-weight:700;line-height:1.2;margin-bottom:.75rem;color:var(--paper)}
+  .vision-card p{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:0}
+
+  /* Chart */
+  .chart-wrap{margin:2.5rem 0 .5rem;overflow-x:auto}
+  .chart-note{font-size:.8rem;color:var(--muted);font-style:italic}
+
+  /* Colour-coded structure cards */
+  .types-grid{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .type-card{background:var(--paper);padding:1.4rem 1.5rem;position:relative;padding-left:1.75rem}
+  .type-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px}
+  .type-card-industrial::before{background:#6b8e6b}
+  .type-card-govt::before{background:#7b6ea6}
+  .type-card-nonprofit::before{background:#4a9b8a}
+  .type-card-fro::before{background:#2d7d9a}
+  .type-card-bbn::before{background:#b5882d}
+  .type-card-arpa::before{background:#6b4e8a}
+  .type-card-name{font-family:var(--serif);font-size:.95rem;font-weight:700;margin-bottom:.2rem}
+  .type-card-sub{font-size:.73rem;color:var(--muted);font-style:italic;margin-bottom:.65rem}
+  .type-card-desc{font-size:.82rem;color:#2d2d2a;line-height:1.7}
+  .type-card-desc em{color:var(--muted);font-style:normal}
+
   .cta-row{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
   .btn{display:inline-block;font-size:.8rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;padding:.75rem 1.5rem;border:1px solid var(--ink);color:var(--ink);transition:background .2s,color .2s}
   .btn:hover{background:var(--ink);color:var(--paper)}
   .btn-primary{background:var(--ink);color:var(--paper)}
   .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
-  .chart-wrap{margin:2.5rem 0 .5rem;overflow-x:auto}
-  .chart-note{font-size:.8rem;color:var(--muted);font-style:italic}
-  .two-up{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1.5rem}
-  .two-up-item{background:var(--paper);padding:1.25rem 1.4rem}
-  .two-up-item strong{font-family:var(--serif);font-size:.92rem;display:block;margin-bottom:.3rem}
-  .two-up-item p{font-size:.86rem;color:var(--muted);margin-bottom:0;line-height:1.65}
+
+  @media(max-width:780px){
+    .types-grid{grid-template-columns:1fr 1fr}
+    .vision-cards{grid-template-columns:1fr}
+  }
   @media(max-width:620px){
-    .type-row{grid-template-columns:1fr}
-    .type-name{border-right:none;border-bottom:1px solid var(--rule)}
+    .types-grid{grid-template-columns:1fr}
     .two-up{grid-template-columns:1fr}
   }
 </style>
@@ -45,7 +70,7 @@ description: How alternative research structures fill the gaps left by academia 
 <section class="content" id="background">
   <p class="section-label">Background</p>
   <p>If science is fundamentally about experimentation, then it follows that we should also be willing to <a href="https://www.asimov.press/p/research-forms">experiment with how research itself is conducted</a>. Rethinking the structures, incentives, and funding models that underpin research institutions could unlock entirely new modes of discovery. This is at the heart of the growing field of metascience.</p>
-  <br>
+
   <h2>Academia and industry are both essential — and both incomplete</h2>
   <p>Universities produce most basic science: curiosity-driven, peer-reviewed, publicly funded. Industry translates discoveries into products. Together they have delivered extraordinary advances. But both are structurally limited in ways that create significant blind spots — and many of the most pressing challenges ahead require exactly the kind of work neither is designed to do.</p>
   <p>The result is predictable: incremental progress over step-change advances, and research siloed both within disciplines and across the discovery–application divide.</p>
@@ -69,22 +94,24 @@ description: How alternative research structures fill the gaps left by academia 
     </div>
     <div class="two-up-item">
       <strong>Intolerance for failure</strong>
-      <p>Funding, journals, and career structures penalise negative results, discouraging the risk-taking required for breakthrough discovery. Committee-mediated grants rarely fund unsexy outlier work.</p>
+      <p>Funding and career structures penalise negative results, discouraging the risk-taking required for breakthrough discovery. Committee-mediated grants rarely fund unsexy outlier work.</p>
     </div>
   </div>
 </section>
 
 <section class="content" id="vision">
   <p class="section-label">The vision</p>
-  <h2>Diversity of research institutions</h2>
-  <p>The goal is to build complementary structures that can pursue what neither academia nor industry currently can: ambitious, coordinated, long-horizon work oriented toward public goods. These institutions would be defined by stable long-term funding, explicit tolerance for failure, and success metrics beyond publications or profit. Success would look like:</p>
-  <div class="two-up">
-    <div class="two-up-item">
-      <strong>Radical breakthroughs</strong>
+  <h2>Better institutions, not different people</h2>
+  <p>The goal is not to replace academia or industry, but to build complementary structures that can pursue what neither can: ambitious, coordinated, long-horizon work oriented toward public goods. These institutions would be defined by stable long-term funding, explicit tolerance for failure, and success metrics beyond publications or profit. Success would look like:</p>
+  <div class="vision-cards">
+    <div class="vision-card">
+      <p class="vision-card-label">Success looks like</p>
+      <h3>Radical breakthroughs</h3>
       <p>Field-shaping discoveries that change what is possible — not incremental progress on established problems.</p>
     </div>
-    <div class="two-up-item">
-      <strong>Essential technologies</strong>
+    <div class="vision-card">
+      <p class="vision-card-label">Success looks like</p>
+      <h3>Essential technologies</h3>
       <p>Research-enabling tools, datasets, and platforms that accelerate entire fields — the infrastructure science needs but markets won't fund.</p>
     </div>
   </div>
@@ -150,29 +177,35 @@ description: How alternative research structures fill the gaps left by academia 
   <p>The following structures represent distinct approaches to organising, funding, and governing research outside of conventional academia and industry. For a comprehensive breakdown and comparison, see <a href="/structures.html">Structures</a>.</p>
 
   <div class="types-grid">
-    <div class="type-row">
-      <div class="type-name"><strong>Industrial Labs</strong><span>Corporate-funded, research-first</span></div>
-      <div class="type-desc">Corporate-funded research labs with significant autonomy from business units. Historically among the most productive research environments ever created — Bell Labs alone produced the transistor, Unix, C, and information theory. The model is rare today, eroded by corporate short-termism, but remains a critical archetype. <em>Examples: Bell Labs, Xerox PARC, DuPont Experimental Station, GE Research, IBM Research, Ink and Switch.</em></div>
+    <div class="type-card type-card-industrial">
+      <div class="type-card-name">Industrial Labs</div>
+      <div class="type-card-sub">Corporate-funded, research-first</div>
+      <p class="type-card-desc">Corporate-funded labs with significant autonomy from business units. Historically among the most productive research environments ever created. The model is rare today but remains a critical archetype. <em>Examples: Bell Labs, Xerox PARC, GE Research, IBM Research, Ink and Switch.</em></p>
     </div>
-    <div class="type-row">
-      <div class="type-name"><strong>Government &amp; Mission-Oriented Labs</strong><span>Publicly funded, national mandate</span></div>
-      <div class="type-desc">Publicly funded institutions with long-term mandates tied to national missions — defence, energy, health, agriculture. Own and operate shared infrastructure (accelerators, supercomputers, containment facilities) that no individual institution could sustain. <em>Examples: CSIRO, Battelle Memorial Institute, US DOE National Labs, Fraunhofer Society (Germany), RIKEN (Japan).</em></div>
+    <div class="type-card type-card-govt">
+      <div class="type-card-name">Government &amp; Mission Labs</div>
+      <div class="type-card-sub">Publicly funded, national mandate</div>
+      <p class="type-card-desc">Publicly funded institutions with long-term mandates tied to national missions. Own and operate shared infrastructure no individual institution could sustain. <em>Examples: CSIRO, US DOE National Labs, Fraunhofer Society, RIKEN.</em></p>
     </div>
-    <div class="type-row">
-      <div class="type-name"><strong>Core-funded Nonprofit Institutes</strong><span>Philanthropic, redesigned incentives</span></div>
-      <div class="type-desc">Institutes that intentionally redesign incentives, funding structures, and shared infrastructure while retaining PI-like autonomy. Funded at 3-8-year horizons, with strong shared platforms enabling more coordination than traditional institutes. Built on the premise that excellent scientists need better conditions, not different people. <em>Examples: Arc Institute, CZI Biohub, Francis Crick Institute, Howard Hughes Medical Institute.</em></div>
+    <div class="type-card type-card-nonprofit">
+      <div class="type-card-name">Core-funded Nonprofit Institutes</div>
+      <div class="type-card-sub">Philanthropic, redesigned incentives</div>
+      <p class="type-card-desc">Institutes that redesign incentives and funding structures while retaining PI-like autonomy. Built on the premise that excellent scientists need better conditions, not different people. <em>Examples: Arc Institute, CZI Biohub, Francis Crick Institute, HHMI.</em></p>
     </div>
-    <div class="type-row">
-      <div class="type-name"><strong>Focused Research Organisations</strong><span>Mission-driven, time-bound, in-house</span></div>
-      <div class="type-desc">Standalone organisations built to execute a specific technical goal with a unified team. CEO-led, full-time cross-functional staff, milestone-driven — pursuing public goods rather than products. Time-bound (~3–7 years): once the mission is complete, the FRO shuts down. <em>Examples: E11 Bio, Cultivarium, Parallel Squared Technology Institute (all via Convergent Research).</em></div>
+    <div class="type-card type-card-fro">
+      <div class="type-card-name">Focused Research Organisations</div>
+      <div class="type-card-sub">Mission-driven, time-bound, in-house</div>
+      <p class="type-card-desc">Standalone organisations built to execute a specific technical goal with a unified team. CEO-led, milestone-driven, time-bound (~3–7 years). Pursuing public goods rather than products. <em>Examples: E11 Bio, Cultivarium, Parallel Squared (via Convergent Research).</em></p>
     </div>
-    <div class="type-row">
-      <div class="type-name"><strong>BBNs / Frontier Research Contracts</strong><span>Contract-based, distributed teams</span></div>
-      <div class="type-desc">Contract-based networks assembling teams across institutions to tackle defined frontier problems. More financially precarious than FROs but more flexible. Ideal for engineering-heavy work too complex for academia and too public-good-oriented for industry. <em>Examples: BBN Technologies, SRI International, MITRE Corporation.</em></div>
+    <div class="type-card type-card-bbn">
+      <div class="type-card-name">BBNs / Frontier Research Contracts</div>
+      <div class="type-card-sub">Contract-based, distributed elite teams</div>
+      <p class="type-card-desc">Contract-based networks assembling elite teams across institutions to tackle defined frontier problems. More flexible than FROs; ideal for engineering-heavy work too public-good-oriented for industry. <em>Examples: BBN Technologies, SRI International, MITRE Corporation.</em></p>
     </div>
-    <div class="type-row">
-      <div class="type-name"><strong>ARPA-style Organisations</strong><span>High-risk, programme-managed, external</span></div>
-      <div class="type-desc">Agencies that fund and coordinate external research teams toward ambitious goals via empowered programme managers and explicit tolerance for failure. Suited to problems where the right approach is unknown — ARPA programs run parallel tracks to test multiple approaches simultaneously. <em>Examples: DARPA, ARPA-E, ARPA-H, ARIA (UK), SPRIND (Germany), Speculative Technologies, Actuate, Wellcome Leap.</em></div>
+    <div class="type-card type-card-arpa">
+      <div class="type-card-name">ARPA-style Organisations</div>
+      <div class="type-card-sub">High-risk, programme-managed, external</div>
+      <p class="type-card-desc">Agencies that fund and coordinate external research teams via empowered programme managers with explicit tolerance for failure. Suited to problems where the right approach is unknown at the outset. <em>Examples: DARPA, ARPA-E, ARPA-H, ARIA (UK), SPRIND (Germany).</em></p>
     </div>
   </div>
 
