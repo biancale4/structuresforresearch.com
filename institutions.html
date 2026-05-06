@@ -51,7 +51,7 @@ description: A catalogue of research institutions organised by structure type â€
   <button class="filter-btn" onclick="filterCats('industrial', this)">Industrial Labs</button>
   <button class="filter-btn" onclick="filterCats('govt', this)">Govt &amp; Mission Labs</button>
   <button class="filter-btn" onclick="filterCats('nonprofit', this)">Nonprofit Institutes</button>
-  <button class="filter-btn" onclick="filterCats('nextgen', this)">Next-Gen Institutes</button>
+  <button class="filter-btn" onclick="filterCats('core', this)">Core-funded Institutes</button>
   <button class="filter-btn" onclick="filterCats('fro', this)">FROs</button>
   <button class="filter-btn" onclick="filterCats('bbn', this)">BBNs / FRCs</button>
   <button class="filter-btn" onclick="filterCats('arpa', this)">ARPA-style</button>
@@ -85,7 +85,6 @@ description: A catalogue of research institutions organised by structure type â€
     <p class="cat-desc">Publicly funded research institutions with long-term mandates tied to national priorities. Own and operate large shared infrastructure that no individual institution could sustain. Among the most durable research institutions in existence.</p>
     <div class="inst-grid">
       <div class="inst-card"><div class="inst-name"><a href="https://www.energy.gov/national-laboratories" target="_blank">US DOE National Laboratories</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">A system of 17 national research labs that combine long-term public funding with large-scale core facilities. They run interdisciplinary, capital-intensive, and multi-decade research programs. This encourages advanced instrumentation development and applied foundational research in areas like energy systems, materials science, and computing that require coordination at national scale.</p></div>
-      <div class="inst-card"><div class="inst-name"><a href="https://www.battelle.org" target="_blank">Battelle Memorial Institute</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Nonprofit that manages several US national labs including PNNL and ORNL. Also conducts its own R&amp;D. Occupies a hybrid position between government lab manager and independent research contractor.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.csiro.au" target="_blank">CSIRO</a></div><div class="inst-country">Australia</div><span class="inst-status status-active">Active</span><p class="inst-note">Australia's national science agency. Broad mandate across agriculture, energy, environment, health, and manufacturing. Notable contributions include Wi-Fi, polymer banknotes, and ASKAP (radio telescope). Operates key shared research infrastructure.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://home.cern" target="_blank">CERN</a></div><div class="inst-country">Switzerland (EU)</div><span class="inst-status status-active">Active</span><p class="inst-note">European Organisation for Nuclear Research. Operates the Large Hadron Collider and is the world's largest particle physics laboratory. Multinational government funding at unprecedented scale. Invented the World Wide Web as a side project.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.fraunhofer.de/en.html" target="_blank">Fraunhofer Society</a></div><div class="inst-country">Germany</div><span class="inst-status status-active">Active</span><p class="inst-note">Network of 76 research institutes focused on applied science and technology transfer. Partially government-funded; earns additional revenue through contracts with industry. Developed the MP3 audio format. A major model for mission-oriented research at national scale.</p></div>
@@ -108,30 +107,31 @@ description: A catalogue of research institutions organised by structure type â€
       <div class="inst-card"><div class="inst-name"><a href="https://www.broadinstitute.org" target="_blank">Broad Institute</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">A joint initiative of MIT and Harvard focusing on biomedical and genomic research. Their speciality is in establishing large core facilities and research platforms run by staff scientists with a more traditional investigator-led laboratory structure. One of its facilities was the largest contributor of sequence information to the Human Genome Project.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.salk.edu" target="_blank">Salk Institute for Biological Studies</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Founded by Jonas Salk. Independent biomedical research institute in La Jolla focused on molecular biology, neuroscience, plant biology, and cancer. Known for exceptional architectural quality as well as scientific output.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.cshl.edu" target="_blank">Cold Spring Harbor Laboratory</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Private research institution with major contributions to genetics, cancer biology, and neuroscience. Also operates one of the world's most important scientific meetings programmes. Has produced 8 Nobel Prize winners.</p></div>
-      <div class="inst-card"><div class="inst-name"><a href="https://www.stowers.org" target="_blank">Stowers Institute for Medical Research</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Privately endowed biomedical research institute in Kansas City. Investigators receive long-term, stable funding â€” unusually insulated from grant pressure.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.buckinstitute.org" target="_blank">Buck Institute for Research on Aging</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">An independent nonprofit biomedical research institute that researches aging and age-related disease. Currently stores the world's largest publicly available stem cell bank.</p></div>
     </div>
   </div>
 
-  <!-- NEXT-GEN INSTITUTES -->
-  <div class="category" data-cat="nextgen">
+  <!-- Core-funded INSTITUTES -->
+  <div class="category" data-cat="core">
     <div class="cat-header">
       <div class="cat-dot" style="background:#c8401a"></div>
-      <div><div class="cat-name">Next-Gen Nonprofit Research Institutes</div><span class="cat-count">3 institutions</span></div>
+      <div><div class="cat-name">Core-funded Nonprofit Research Institutes</div><span class="cat-count">4 institutions</span></div>
     </div>
     <p class="cat-desc">A newer generation of philanthropically-funded institutes that intentionally redesign the conditions for science â€” long funding horizons, strong shared infrastructure, and reduced administrative burden â€” while retaining PI autonomy. Emerging category; expect more.</p>
     <div class="inst-grid">
       <div class="inst-card"><div class="inst-name"><a href="https://arcinstitute.org" target="_blank">Arc Institute</a></div><div class="inst-country">United States</div><span class="inst-status status-emerging">Emerging (founded 2021)</span><p class="inst-note">Research institute backed by Patrick Collison, Sam Altman, and others. Scientists receive long-term (~8 year) funding, freedom from grant writing, and access to shared platforms and infrastructure. Focused on biomedicine. Deliberately designed around what top scientists actually need.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.czbiohub.org" target="_blank">CZI Biohub</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active (founded 2016, expanded 2025)</span><p class="inst-note">Chan Zuckerberg Initiative's primary biomedical research vehicle. Original San Francisco Biohub fostered collaboration between Stanford, UCSF, and Berkeley. In 2025 relaunched as a much larger AI-and-biology initiative.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://alleninstitute.org" target="_blank">Allen Institute</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active (founded 2003)</span><p class="inst-note">Multiple institutes that conduct basic neuroscience research studying the brain, cells and immune system in an effort to create large-scale datasets and open scientific resources, such as the Allen Brain Atlas or the Brain Initiative Cell Census datasets. It predominantly employs staff scientists.</p></div>
-    </div>
+      <div class="inst-card"><div class="inst-name"><a href="https://www.stowers.org" target="_blank">Stowers Institute for Medical Research</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Privately endowed biomedical research institute in Kansas City. Investigators receive long-term, stable funding â€” unusually insulated from grant pressure.</p></div>
+
+  </div>
   </div>
 
   <!-- FROs -->
   <div class="category" data-cat="fro">
     <div class="cat-header">
       <div class="cat-dot" style="background:#2d7d9a"></div>
-      <div><div class="cat-name">Focused Research Organisations</div><span class="cat-count">6 institutions</span></div>
+      <div><div class="cat-name">Focused Research Organisations</div><span class="cat-count">5 institutions</span></div>
     </div>
     <p class="cat-desc">Standalone nonprofit startups built to execute a specific, clearly defined technical goal with a unified full-time team. Time-bound (~10 years), milestone-driven, and oriented entirely toward public goods. Primarily launched through Convergent Research.</p>
     <div class="inst-grid">
@@ -139,7 +139,6 @@ description: A catalogue of research institutions organised by structure type â€
       <div class="inst-card"><div class="inst-name"><a href="https://www.e11.bio" target="_blank">E11 Bio</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Building a platform to reduce the cost of mapping mammalian brain wiring by 100-fold. Addresses a key bottleneck in connectomics â€” understanding how neurons are wired is foundational to neuroscience but currently prohibitively expensive at scale.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.cultivarium.org" target="_blank">Cultivarium</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Developing a platform to reduce the time, cost, and risk of studying and engineering previously intractable microbes. Expands the frontier of synthetic biology by making non-model organisms accessible to researchers.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.p2ti.org" target="_blank">Parallel Squared Technology Institute</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Developing methods to run up to 30x more proteomics samples in parallel. Addresses a key throughput bottleneck in proteomics â€” understanding which proteins are present and at what levels is crucial for biology and drug discovery.</p></div>
-      <div class="inst-card"><div class="inst-name"><a href="https://wellcomeleap.org" target="_blank">Wellcome Leap</a></div><div class="inst-country">United Kingdom</div><span class="inst-status status-active">Active</span><p class="inst-note">Wellcome Leap is a global ARPA for health. Runs programmes over 5-10 years with defined goals and milestones, drawing on a global network of performers.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://spec.tech" target="_blank">Speculative Technologies</a></div><div class="inst-country">United States</div><span class="inst-status status-emerging">Emerging</span><p class="inst-note">A nonprofit that funds a portfolio of 5-year research programs run by Program Leads with an ambitious vision for physical technologies (new materials and manufacturing processes).</p></div>
     </div>
   </div>
@@ -148,12 +147,13 @@ description: A catalogue of research institutions organised by structure type â€
   <div class="category" data-cat="bbn">
     <div class="cat-header">
       <div class="cat-dot" style="background:#b5882d"></div>
-      <div><div class="cat-name">BBNs / Frontier Research Contractors</div><span class="cat-count">5 institutions</span></div>
+      <div><div class="cat-name">BBNs / Frontier Research Contractors</div><span class="cat-count">6 institutions</span></div>
     </div>
     <p class="cat-desc">Contract-based research organisations that generate revenue through government and industry contracts while pursuing bolder research agendas in the margins. More financially precarious than FROs but more flexible and open-ended.</p>
     <div class="inst-grid">
       <div class="inst-card"><div class="inst-name">BBN Technologies</div><div class="inst-country">United States</div><span class="inst-status status-historical">Historical (1948â€“2009 as independent)</span><p class="inst-note">The original BBN. Built the first node of ARPANET (the internet's precursor). Used government contracts to fund foundational research in computing, networking, and acoustics. Now owned by Raytheon â€” a cautionary example of the BBN failure mode.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.sri.com" target="_blank">SRI International</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Spun out of Stanford in 1970. Contract research organisation with major contributions to computing (invented the computer mouse), internet protocols, and SIRI (acquired by Apple). One of the most successful examples of sustained independent contract research.</p></div>
+      <div class="inst-card"><div class="inst-name"><a href="https://www.battelle.org" target="_blank">Battelle Memorial Institute</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Nonprofit that manages several US national labs including PNNL and ORNL. Also conducts its own R&amp;D. Occupies a hybrid position between government lab manager and independent research contractor.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.mitre.org" target="_blank">MITRE Corporation</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Nonprofit that operates Federally Funded Research and Development Centers (FFRDCs) for the US government. Focuses on systems engineering, national security, and aviation. A mature, institutionalised version of the BBN model.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.ida.org" target="_blank">Institute for Defense Analyses</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Nonprofit FFRDC that assists the US Department of Defense and national security community with scientific, technical, and analytical studies.</p></div>
       <div class="inst-card"><div class="inst-name"><a href="https://www.rand.org" target="_blank">RAND Corporation</a></div><div class="inst-country">United States</div><span class="inst-status status-active">Active</span><p class="inst-note">Originally a contract research organisation spun out of Douglas Aircraft and the US Air Force. Has evolved into a policy research institute, but retains contract-funded research as a core model.</p></div>
@@ -164,7 +164,7 @@ description: A catalogue of research institutions organised by structure type â€
   <div class="category" data-cat="arpa">
     <div class="cat-header">
       <div class="cat-dot" style="background:#6b4e8a"></div>
-      <div><div class="cat-name">ARPA-style Organisations</div><span class="cat-count">9 institutions</span></div>
+      <div><div class="cat-name">ARPA-style Organisations</div><span class="cat-count">7 institutions</span></div>
     </div>
     <p class="cat-desc">Agencies that fund and coordinate external research teams via empowered programme managers. Defined by milestone-driven portfolio management and explicit tolerance for failure. Suited to problems where the right approach is unknown at the outset.</p>
     <div class="inst-grid">
